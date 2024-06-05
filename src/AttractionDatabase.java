@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -35,34 +36,59 @@ public class AttractionDatabase {
 
     public void addAttractionManually() {
         Scanner attrInput = new Scanner(System.in);
-        System.out.print("Enter an ID for the attraction: ");
-        int id = attrInput.nextInt();
-        attrInput.nextLine(); // Consume newline character
+        boolean exit = false;
+        int nextId = 0;
+        for(Attraction attraction : attractions){
+            if (attraction.getId() >= nextId){
+                nextId = attraction.getId() + 1;
+            }
+        }
+//        System.out.print("Enter an ID for the attraction: ");
+//        int id = attrInput.nextInt();
+//        attrInput.nextLine(); // Consume newline character
 
-        System.out.print("Enter name of the attraction: ");
-        String name = attrInput.nextLine();
+        do {
+            try {
+                System.out.print("Enter name of the attraction: ");
+                String name = attrInput.nextLine();
 
-        System.out.print("Enter a brief description of the attraction: ");
-        String description = attrInput.nextLine();
+                System.out.print("Enter a brief description of the attraction: ");
+                String description = attrInput.nextLine();
 
-        System.out.print("Enter location of the attraction: ");
-        String location = attrInput.nextLine();
+                System.out.print("Enter location of the attraction: ");
+                String location = attrInput.nextLine();
 
-        System.out.print("Enter type of attraction: ");
-        String type = attrInput.nextLine();
+                System.out.print("Enter type of attraction: ");
+                String type = attrInput.nextLine();
 
-        System.out.print("Enter any height restriction for the attraction or 'None': ");
-        String height = attrInput.nextLine();
+                System.out.print("Enter any height restriction for the attraction or 'None': ");
+                String height = attrInput.nextLine();
 
-        System.out.print("Enter the thrill level of the attraction (0-5): ");
-        int thrill = attrInput.nextInt();
-        attrInput.nextLine();
+                System.out.print("Enter the thrill level of the attraction (0-5): ");
+                int thrill = attrInput.nextInt();
+                while (thrill < 0 || thrill > 5){
+                    System.out.print("Invalid. \nEnter the thrill level of the attraction (0-5): ");
+                    thrill = attrInput.nextInt();
+                }
+                attrInput.nextLine();
 
-        System.out.print("Enter opening date of attraction (yyyy-mm-dd): ");
-        LocalDate openingDate = LocalDate.parse(attrInput.nextLine());
+                System.out.print("Enter opening date of attraction (yyyy-mm-dd): ");
+                LocalDate openingDate = LocalDate.parse(attrInput.nextLine());
 
-        attractions.add(new Attraction(id, name, description, location, type, height, thrill, openingDate));
-        System.out.println("Attraction added successfully.");
+                attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
+                exit = true;
+                System.out.println("Attraction added successfully.");
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid entry. Please try again.");
+                attrInput.nextLine();
+            } catch (DateTimeException d) {
+                System.out.println("Invalid entry. Please try again.");
+            }
+        } while (!exit);
+
+
+
+
     }
 
     public void rateAttraction(int id, double rating) {
@@ -82,59 +108,71 @@ public class AttractionDatabase {
 
 
     public void updateAttraction(int id) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         Attraction attraction = getAttractionById(id);
         if (attraction == null) {
             System.out.println("Attraction not found.");
             return;
         }
-        System.out.println("Selected: " + attraction.toString());
+        boolean exit = false;
 
-        System.out.println("Select the attribute to update:");
-        System.out.println("1. Name");
-        System.out.println("2. Description");
-        System.out.println("3. Location");
-        System.out.println("4. Type");
-        System.out.println("5. Height Restriction");
-        System.out.println("6. Thrill Level");
-        System.out.println("7. Opening Date");
-        int choice = scanner.nextInt();
-        scanner.nextLine();  // consume newline
+        do {
+            try{
+            System.out.println("Selected: " + attraction.toString());
 
-        switch (choice) {
-            case 1:
-                System.out.print("Enter new name: ");
-                attraction.setName(scanner.nextLine());
-                break;
-            case 2:
-                System.out.print("Enter new description: ");
-                attraction.setDescription(scanner.nextLine());
-                break;
-            case 3:
-                System.out.print("Enter new location: ");
-                attraction.setLocation(scanner.nextLine());
-                break;
-            case 4:
-                System.out.print("Enter new type: ");
-                attraction.setType(scanner.nextLine());
-                break;
-            case 5:
-                System.out.print("Enter new height restriction: ");
-                attraction.setHeight(scanner.nextLine());
-                break;
-            case 6:
-                System.out.print("Enter new thrill level: ");
-                attraction.setThrill(scanner.nextInt());
-                scanner.nextLine();
-                break;
-            case 7:
-                System.out.print("Enter new opening date (yyyy-mm-dd): ");
-                attraction.setOpeningDate(LocalDate.parse(scanner.nextLine()));
-                break;
-            default:
-                System.out.println("Invalid choice.");
-                break;
-        }
+            System.out.println("Select the attribute to update:");
+            System.out.println("1. Name");
+            System.out.println("2. Description");
+            System.out.println("3. Location");
+            System.out.println("4. Type");
+            System.out.println("5. Height Restriction");
+            System.out.println("6. Thrill Level");
+            System.out.println("7. Opening Date");
+            int choice = userInput.nextInt();
+            userInput.nextLine();  // consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter new name: ");
+                    attraction.setName(userInput.nextLine());
+                    break;
+                case 2:
+                    System.out.print("Enter new description: ");
+                    attraction.setDescription(userInput.nextLine());
+                    break;
+                case 3:
+                    System.out.print("Enter new location: ");
+                    attraction.setLocation(userInput.nextLine());
+                    break;
+                case 4:
+                    System.out.print("Enter new type: ");
+                    attraction.setType(userInput.nextLine());
+                    break;
+                case 5:
+                    System.out.print("Enter new height restriction: ");
+                    attraction.setHeight(userInput.nextLine());
+                    break;
+                case 6:
+                    System.out.print("Enter new thrill level: ");
+                    attraction.setThrill(userInput.nextInt());
+                    userInput.nextLine();
+                    break;
+                case 7:
+                    System.out.print("Enter new opening date (yyyy-mm-dd): ");
+                    attraction.setOpeningDate(LocalDate.parse(userInput.nextLine()));
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+                    break;
+            }
+            exit = true;
+            } catch (InputMismatchException e){
+                System.out.println("Invalid entry. Please try again.");
+                userInput.nextLine();
+            } catch (DateTimeException d) {
+                System.out.println("Invalid entry. Please try again.");
+            }
+        } while (!exit);
         System.out.println("Attraction updated successfully.");
     }
 
