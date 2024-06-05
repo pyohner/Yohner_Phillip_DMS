@@ -1,0 +1,50 @@
+1,Space Mountain,Indoor roller coaster set in outer space,DLR-Tomorrowland,Roller Coaster,40 inches,4,1975-01-15,4.5
+2,Pirates of the Caribbean,Boat ride through pirate-infested waters,DLR-Adventureland,Dark Ride,None,2,1967-03-18,4.8
+3,Haunted Mansion,Dark ride through a spooky haunted house,DLR-New Orleans Square,Dark Ride,None,2,1969-08-09,4.7
+4,Big Thunder Mountain Railroad,Runaway mine train roller coaster,DLR-Frontierland,Roller Coaster,40 inches,3,1979-09-02,4.6
+5,Splash Mountain,Log flume ride with a big drop,DLR-Critter Country,Log Flume,40 inches,4,1989-07-17,4.7
+6,Indiana Jones Adventure,Thrilling ride through the Temple of the Forbidden Eye,DLR-Adventureland,Dark Ride,46 inches,4,1995-03-03,4.9
+7,It's a Small World,Boat ride featuring dolls from around the world,DLR-Fantasyland,Boat Ride,None,1,1966-05-28,4.2
+8,Matterhorn Bobsleds,Roller coaster through a snowy mountain,DLR-Fantasyland,Roller Coaster,42 inches,3,1959-06-14,4.4
+9,Dumbo the Flying Elephant,Spinning ride with flying elephants,DLR-Fantasyland,Spinner,None,1,1955-07-17,4.3
+10,Peter Pan's Flight,Dark ride flying over London to Neverland,DLR-Fantasyland,Dark Ride,None,1,1955-07-17,4.5
+11,Jungle Cruise,Boat tour through exotic jungles,DLR-Adventureland,Boat Ride,None,2,1955-07-17,4.4
+12,Buzz Lightyear Astro Blasters,Interactive ride with laser guns,DLR-Tomorrowland,Interactive Ride,None,2,2005-03-17,4.2
+13,Star Tours,Simulator ride through the Star Wars universe,DLR-Tomorrowland,Simulator,40 inches,3,1987-01-09,4.3
+14,Enchanted Tiki Room,Musical show with animatronic birds,DLR-Adventureland,Show,None,1,1963-06-23,4.1
+15,Autopia,Driving ride in small cars,DLR-Tomorrowland,Driving,None,1,1955-07-17,3.9
+16,Finding Nemo Submarine Voyage,Underwater adventure with Nemo and friends,DLR-Tomorrowland,Submarine,None,1,2007-06-11,4.0
+17,Toy Story Midway Mania,Interactive 4D shooting game,DLR-Pixar Pier,Interactive Ride,None,2,2008-06-17,4.4
+18,Radiator Springs Racers,High-speed race through Radiator Springs,DLR-Cars Land,Dark Ride,40 inches,4,2012-06-15,4.9
+19,Guardians of the Galaxy Mission Breakout,Freefall drop tower,DLR-Hollywood Land,Drop Tower,40 inches,5,2017-05-27,4.8
+20,Soarin' Around the World,Hang-gliding simulator over world landmarks,DLR-Grizzly Peak,Simulator,40 inches,2,2001-02-08,4.7
+21,Grizzly River Run,Whitewater raft ride,DLR-Grizzly Peak,River Rapids,42 inches,3,2001-02-08,4.5
+22,Monsters Inc Mike and Sulley to the Rescue,Dark ride through Monstropolis,DLR-Hollywood Land,Dark Ride,None,1,2006-01-23,4.0
+23,The Incredicoaster,High-speed roller coaster,DLR-Pixar Pier,Roller Coaster,48 inches,5,2001-02-08,4.9
+24,Mickey's PhilharMagic,3D musical show with Disney characters,DLR-Fantasyland,Show,None,1,2019-04-26,4.2
+25,The Many Adventures of Winnie the Pooh,Dark ride with Winnie the Pooh and friends,DLR-Critter Country,Dark Ride,None,1,2003-04-11,4.1
+26,Expedition Everest,High-speed roller coaster through the Himalayas,WDW-Asia,Roller Coaster,44 inches,4,2006-04-07,4.7
+27,Avatar Flight of Passage,Simulator ride through Pandora,WDW-Pandora,Simulator,44 inches,5,2017-05-27,4.9
+28,Kilimanjaro Safaris,Open-air safari ride through African savanna,WDW-Africa,Safari,None,2,1998-04-22,4.8
+29,Dinosaur,Thrilling ride through prehistoric times,WDW-DinoLand USA,Dark Ride,40 inches,4,1998-04-22,4.3
+30,Kali River Rapids,Whitewater raft ride,WDW-Asia,River Rapids,38 inches,3,1999-03-18,4.2
+31,Spaceship Earth,Dark ride exploring human communication,WDW-Future World,Dark Ride,None,2,1982-10-01,4.4
+32,Test Track,High-speed car ride,WDW-Future World,Simulator,40 inches,4,1999-03-17,4.6
+33,Soarin' Around the World,Hang-gliding simulator over world landmarks,WDW-Future World,Simulator,40 inches,2,2005-05-05,4.7
+34,Frozen Ever After,Boat ride through Frozen's Arendelle,WDW-Norway,Dark Ride,None,2,2016-06-21,4.4
+35,Gran Fiesta Tour,Boat ride through Mexico with the Three Caballeros,WDW-Mexico,Boat Ride,None,1,2007-04-06,4.0
+36,Seven Dwarfs Mine Train,Family roller coaster through the diamond mine,WDW-Fantasyland,Roller Coaster,38 inches,3,2014-05-28,4.6
+37,Peter Pan's Flight,Dark ride flying over London to Neverland,WDW-Fantasyland,Dark Ride,None,1,1971-10-01,4.5
+38,Haunted Mansion,Dark ride through a spooky haunted house,WDW-Liberty Square,Dark Ride,None,2,1971-10-01,4.7
+39,Splash Mountain,Log flume ride with a big drop,WDW-Frontierland,Log Flume,40 inches,4,1992-10-02,4.8
+40,Big Thunder Mountain Railroad,Runaway mine train roller coaster,WDW-Frontierland,Roller Coaster,40 inches,3,1980-11-15,4.6
+41,Space Mountain,Indoor roller coaster set in outer space,WDW-Tomorrowland,Roller Coaster,44 inches,4,1975-01-15,4.5
+42,Pirates of the Caribbean,Boat ride through pirate-infested waters,WDW-Adventureland,Dark Ride,None,2,1973-12-15,4.8
+43,Jungle Cruise,Boat tour through exotic jungles,WDW-Adventureland,Boat Ride,None,2,1971-10-01,4.4
+44,Buzz Lightyear's Space Ranger Spin,Interactive ride with laser guns,WDW-Tomorrowland,Interactive Ride,None,2,1998-10-07,4.3
+45,Tomorrowland Transit Authority PeopleMover,Scenic ride through Tomorrowland,WDW-Tomorrowland,Transport,None,1,1975-07-01,4.2
+46,The Barnstormer,Junior roller coaster with Goofy,WDW-Storybook Circus,Roller Coaster,35 inches,2,1996-10-01,3.8
+47,The Magic Carpets of Aladdin,Spinning ride with flying carpets,WDW-Adventureland,Spinner,None,1,2001-05-24,4.0
+48,The Many Adventures of Winnie the Pooh,Dark ride with Winnie the Pooh and friends,WDW-Fantasyland,Dark Ride,None,1,1999-06-04,4.1
+49,Under the Sea Journey of the Little Mermaid,Dark ride under the sea,WDW-Fantasyland,Dark Ride,None,1,2012-12-06,4.2
+50,Mickey's PhilharMagic,3D musical show with Disney characters,WDW-Fantasyland,Show,None,1,2003-09-12,4.2

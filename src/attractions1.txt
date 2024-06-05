@@ -1,0 +1,49 @@
+1,Space Mountain,Magic Kingdom,Roller Coaster,1975-01-15,4.7
+2,Pirates of the Caribbean,Magic Kingdom,Dark Ride,1973-12-15,4.6
+3,Splash Mountain,Magic Kingdom,Log Flume,1992-07-17,4.5
+4,Haunted Mansion,Magic Kingdom,Dark Ride,1971-10-01,4.8
+5,Star Tours,Hollywood Studios,Simulator,1989-12-15,4.2
+6,Indiana Jones Adventure,Disneyland,Dark Ride,1995-03-03,4.7
+7,Big Thunder Mountain Railroad,Magic Kingdom,Roller Coaster,1980-09-02,4.6
+8,Jungle Cruise,Magic Kingdom,Boat Ride,1971-10-01,4.5
+9,The Twilight Zone Tower of Terror,Hollywood Studios,Drop Tower,1994-07-22,4.8
+10,Soarin',Epcot,Simulator,2005-05-05,4.7
+11,Test Track,Epcot,Dark Ride,1999-03-17,4.5
+12,Toy Story Midway Mania,Hollywood Studios,Shooter,2008-06-17,4.4
+13,Expedition Everest,Animal Kingdom,Roller Coaster,2006-04-07,4.6
+14,Avatar Flight of Passage,Animal Kingdom,Simulator,2017-05-27,4.9
+15,Kilimanjaro Safaris,Animal Kingdom,Safari,1998-04-22,4.7
+16,Peter Pan's Flight,Magic Kingdom,Dark Ride,1971-10-03,4.3
+17,It's a Small World,Magic Kingdom,Boat Ride,1971-10-01,4.2
+18,Buzz Lightyear's Space Ranger Spin,Magic Kingdom,Shooter,1998-11-03,4.3
+19,Seven Dwarfs Mine Train,Magic Kingdom,Roller Coaster,2014-05-28,4.7
+20,Frozen Ever After,Epcot,Dark Ride,2016-06-21,4.6
+21,Spaceship Earth,Epcot,Dark Ride,1982-10-01,4.5
+22,Mission: SPACE,Epcot,Simulator,2003-08-15,4.2
+23,Rock 'n' Roller Coaster,Hollywood Studios,Roller Coaster,1999-07-29,4.7
+24,Mickey & Minnie's Runaway Railway,Hollywood Studios,Dark Ride,2020-03-04,4.6
+25,Fantasmic!,Hollywood Studios,Show,1998-10-15,4.8
+26,The Many Adventures of Winnie the Pooh,Magic Kingdom,Dark Ride,1999-06-04,4.3
+27,Dumbo the Flying Elephant,Magic Kingdom,Aerial Carousel,1971-10-01,4.1
+28,The Barnstormer,Magic Kingdom,Roller Coaster,1996-10-01,4
+29,Tomorrowland Speedway,Magic Kingdom,Go-Karts,1971-10-01,3.9
+30,Mad Tea Party,Magic Kingdom,Teacups,1971-10-01,4.2
+31,Enchanted Tiki Room,Magic Kingdom,Show,1971-10-01,4.3
+32,Astro Orbiter,Magic Kingdom,Aerial Carousel,1974-11-28,4.1
+33,Monsters Inc. Laugh Floor,Magic Kingdom,Show,2007-04-02,4.4
+34,Finding Nemo – The Musical,Animal Kingdom,Show,2007-01-24,4.6
+35,Primeval Whirl,Animal Kingdom,Roller Coaster,2002-03-31,4
+36,Kali River Rapids,Animal Kingdom,Rapids Ride,1999-03-18,4.4
+37,DINOSAUR,Animal Kingdom,Dark Ride,1998-04-22,4.3
+38,The Seas with Nemo & Friends,Epcot,Dark Ride,2007-01-24,4.2
+39,Journey Into Imagination with Figment,Epcot,Dark Ride,2002-06-02,4.1
+40,Living with the Land,Epcot,Boat Ride,1982-10-01,4.5
+41,The American Adventure,Epcot,Show,1982-10-01,4.4
+42,Reflections of China,Epcot,Show,2003-05-22,4.3
+43,Beauty and the Beast – Live on Stage,Hollywood Studios,Show,1991-11-22,4.6
+44,The Voyage of the Little Mermaid,Hollywood Studios,Show,1992-01-07,4.5
+45,Muppet*Vision 3D,Hollywood Studios,Show,1991-05-16,4.4
+46,Lights Motors Action,Hollywood Studios,Show,2005-05-05,4.3
+47,Swiss Family Treehouse,Magic Kingdom,Walkthrough,1971-10-01,4
+48,Tom Sawyer Island,Magic Kingdom,Walkthrough,1973-05-20,4.1
+49,Walt Disney's Carousel of Progress,Magic Kingdom,Show,1975-01-15,4.5
