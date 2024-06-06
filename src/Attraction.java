@@ -1,3 +1,14 @@
+/*
+ * Phillip Yohner
+ * CEN 3024C - 31950
+ * June 6, 2024
+ *
+ * Class: Attraction
+ * This class defines the Attraction object and contains the get and set methods.
+ *
+ */
+
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -5,17 +16,18 @@ import java.util.OptionalDouble;
 
 public class Attraction {
 
-    private int id;
-    private String name;
-    private String description;
-    private String location;
-    private String type;
-    private String height;
-    private int thrill;
-    private LocalDate openingDate;
-    //private double rating;
-    private List<Double> ratings;
+    // Attraction attributes
+    private int id; // ID
+    private String name; // Name
+    private String description; // Description
+    private String location; // Location
+    private String type; // Type
+    private String height; // Height Restrictions
+    private int thrill; // Thrill Level
+    private LocalDate openingDate; // Opening Date
+    private List<Double> ratings; // Ratings
 
+    // Constructor - includes rating (used for initial data load-in)
     public Attraction(int id, String name, String description, String location, String type, String height, int thrill, LocalDate openingDate, double ratings) {
         this.id = id;
         this.name = name;
@@ -25,10 +37,10 @@ public class Attraction {
         this.height = height;
         this.thrill = thrill;
         this.openingDate = openingDate;
-        //this.rating = rating;
         this.ratings = new ArrayList<>();
         this.ratings.add(ratings);
     }
+    // Construction - excludes rating
     public Attraction(int id, String name, String description, String location, String type, String height, int thrill, LocalDate openingDate) {
         this.id = id;
         this.name = name;
@@ -38,7 +50,6 @@ public class Attraction {
         this.height = height;
         this.thrill = thrill;
         this.openingDate = openingDate;
-        //this.rating = rating;
         this.ratings = new ArrayList<>();
     }
 
@@ -48,9 +59,7 @@ public class Attraction {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
     public String getName() {
         return name;
@@ -101,21 +110,11 @@ public class Attraction {
     public double getAverageRating() {
         OptionalDouble average = ratings.stream().mapToDouble(Double::doubleValue).average();
         return average.isPresent() ? average.getAsDouble() : 0.0;
-//        double average = ratings.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
-//        return Math.round(average + 10.0)/10.0;
     }
-
-    //public double getRating() {
-    //    return rating;
-    //}
-
-    //public void setRating(double rating) {
-    //    this.rating = rating;
-    //}
 
     @Override
     public String toString() {
-        return "Attraction{" +
+        return "Attraction {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
