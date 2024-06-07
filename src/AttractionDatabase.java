@@ -92,9 +92,14 @@ public class AttractionDatabase {
 
                 System.out.print("Enter opening date of attraction (yyyy-mm-dd): ");
                 LocalDate openingDate = LocalDate.parse(attrInput.nextLine()); // opening date input
-                // Create Attraction object with data and add to list
-                attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
-                System.out.println("Attraction added successfully.");
+                // Check that attraction name and location combination is unique
+                if(isUniqueAttraction(name, location)) { // If name & location is unique...
+                    // Create Attraction object with data and add to list
+                    attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
+                    System.out.println("Attraction added successfully.");
+                } else { // If name & location is not unique, notify user
+                    System.out.println("This attraction name and location already exists.");
+                }
                 exit = true; // Ok to exit to main menu
             } catch (InputMismatchException e) { // catches InputMismatchException and will restart menu
                 System.out.println("Invalid entry. Please try again.");
@@ -148,8 +153,15 @@ public class AttractionDatabase {
             switch (choice) {
                 case 1: // New Name entry
                     System.out.print("Enter new name: ");
-                    attraction.setName(userInput.nextLine());
-                    System.out.println("Attraction name updated successfully.");
+                    String nameInput = userInput.nextLine();
+                    // Checks if name and location combination already exists.
+                    if (isUniqueAttraction(nameInput, attraction.getLocation())){ // If unique...
+                        attraction.setName(nameInput); // Updates name.
+                        System.out.println("Attraction name updated successfully.");
+                    } else { // If not unique, notify user and do not update name.
+                     System.out.println("An attraction with this name already exists at this location.");
+                     System.out.println("Name not updated.");
+                    }
                     break;
                 case 2: // New Description entry
                     System.out.print("Enter new description: ");
@@ -158,8 +170,15 @@ public class AttractionDatabase {
                     break;
                 case 3: // New Location entry
                     System.out.print("Enter new location: ");
-                    attraction.setLocation(userInput.nextLine());
-                    System.out.println("Attraction location updated successfully.");
+                    String locationInput = userInput.nextLine();
+                    // Checks if name and location combination already exists.
+                    if (isUniqueAttraction(attraction.getName(),locationInput)){ // If unique...
+                        attraction.setLocation(userInput.nextLine()); // Updates location.
+                        System.out.println("Attraction location updated successfully.");
+                    } else { // If not unique, notify user and do not update location.
+                        System.out.println("This location you entered already has this attraction.");
+                        System.out.println("Location not updated.");
+                    }
                     break;
                 case 4: // New Type entry
                     System.out.print("Enter new type: ");
@@ -253,4 +272,17 @@ public class AttractionDatabase {
     private Attraction getAttractionById(int id) {
         return attractions.stream().filter(attraction -> attraction.getId() == id).findFirst().orElse(null);
     }
+
+    // Is Unique Attraction method
+    // Takes in a name and location and checks if that combination exists in the attraction list.
+    // Returns true or false.
+    private boolean isUniqueAttraction(String name, String location){
+        for(Attraction attraction : attractions){
+            if (attraction.getName().equalsIgnoreCase(name) && attraction.getLocation().equalsIgnoreCase(location)){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
