@@ -51,7 +51,12 @@ public class AttractionDatabase {
         }
     }
 
-    // Add Attraction method
+    /*
+    Add Attraction Manually method
+    Asks the user to enter the details for each attribute of the attraction.
+    The ID is auto-generated.
+    Adds the attraction to the database.
+     */
     public void addAttractionManually() {
         Scanner attrInput = new Scanner(System.in); // create Scanner for user input
         boolean exit = false; //  menu exit flag
@@ -110,8 +115,11 @@ public class AttractionDatabase {
         } while (!exit); // Exit to main menu
     }
 
-    // Rate Attraction method
-    // Gets attraction by ID and adds the rating to the attraction's object
+    /*
+    Rate Attraction method
+    Accepts the attraction ID and rating.
+    Gets the attraction by ID and adds the rating to the attraction's rating list.
+     */
     public void rateAttraction(int id, double rating) {
         Attraction attraction = getAttractionById(id); // Get attraction by ID
         if (attraction != null) { // If ID exists...
@@ -122,9 +130,12 @@ public class AttractionDatabase {
         }
     }
 
-    // Update Attraction method
-    // Gets attraction by ID, asks the user for the attribute to update, then
-    // asks for the new value and updates the attraction.
+    /*
+    Update Attraction method
+    Accepts the attraction ID.
+    Gets attraction by ID.  Asks the user for the attribute to update, then asks for the new value.
+    Updates the attraction in the database.
+     */
     public void updateAttraction(int id) {
         Scanner userInput = new Scanner(System.in); // create input Scanner
         Attraction attraction = getAttractionById(id); // Get attraction by ID
@@ -217,9 +228,11 @@ public class AttractionDatabase {
         } while (!exit); // Exit to main menu
     }
 
-    // Remove Attraction method
-    // Takes the attraction ID and iterates through the attractions list for matches.
-    // The attraction with the matching ID is removed from the list.
+    /*
+    Remove Attraction method
+    Takes the attraction ID and iterates through the attractions list for matches.
+    The attraction with the matching ID is removed from the list.
+     */
     public void removeAttraction(int attractionId) {
         Iterator<Attraction> iterator = attractions.iterator(); // Create iterator for attractions list
         while (iterator.hasNext()) { // Go through each attraction
@@ -233,8 +246,10 @@ public class AttractionDatabase {
         System.out.println("Attraction with ID " + attractionId + " not found."); // Let user know if no match exists
     }
 
-    // Get Top Rated Attractions method
-    // Lists the top 10 rated attractions
+    /*
+    Get Top Rated Attractions method
+    Lists the top 10 rated attractions.
+     */
     public void getTopRatedAttractions() {
         List<Attraction> sortedAttractions = new ArrayList<>(attractions); // create a copy of the attractions list
         sortedAttractions.sort((a1, a2) -> Double.compare(a2.getAverageRating(), a1.getAverageRating())); // sort the list by average rating
@@ -249,8 +264,10 @@ public class AttractionDatabase {
         }
     }
 
-    // List Attractions method
-    // Simply displays the full list of attractions.
+    /*
+    List Attractions method
+    Displays the full list of attractions.
+     */
     public void listAttractions() {
         System.out.println("Listing all attractions:");
         for (Attraction attraction : attractions) {
@@ -266,16 +283,20 @@ public class AttractionDatabase {
         }
     }
 
-    // Get Attraction by ID method
-    // Takes in an integer as the ID number and returns the attraction object with the matching ID,
-    // otherwise, will return 'null' if no match is found.
+    /*
+    Get Attraction by ID method
+    Takes in an integer as the ID number and returns the attraction object with the matching ID,
+    otherwise, will return 'null' if no match is found.
+     */
     private Attraction getAttractionById(int id) {
         return attractions.stream().filter(attraction -> attraction.getId() == id).findFirst().orElse(null);
     }
 
-    // Is Unique Attraction method
-    // Takes in a name and location and checks if that combination exists in the attraction list.
-    // Returns 'true' when unique or 'false' when not unique.
+    /*
+    Is Unique Attraction method
+    Takes in a name and location (Strings) and checks if that combination exists in the attraction list.
+    Returns 'true' when unique or 'false' when not unique.
+     */
     private boolean isUniqueAttraction(String name, String location){
         for(Attraction attraction : attractions){
             if (attraction.getName().equalsIgnoreCase(name) && attraction.getLocation().equalsIgnoreCase(location)){
@@ -284,5 +305,4 @@ public class AttractionDatabase {
         }
         return true;
     }
-
 }
