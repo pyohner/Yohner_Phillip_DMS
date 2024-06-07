@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Updated comments.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Added better catching of invalid thrill level and opening date inputs.">
       <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716935311191</updated>
       <workItem from="1716935312468" duration="2313000" />
-      <workItem from="1717015440867" duration="40111000" />
+      <workItem from="1717015440867" duration="40615000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -140,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717790848077</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added better catching of invalid thrill level and opening date inputs.">
+      <option name="closed" value="true" />
+      <created>1717796844177</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717796844177</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +160,7 @@
     <MESSAGE value="Added name and location uniqueness checking." />
     <MESSAGE value="Corrected menu order. Added to README.md. Fixed typos." />
     <MESSAGE value="Updated comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated comments." />
+    <MESSAGE value="Added better catching of invalid thrill level and opening date inputs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added better catching of invalid thrill level and opening date inputs." />
   </component>
 </project>

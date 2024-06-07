@@ -21,6 +21,7 @@ import java.util.*;
 public class AttractionDatabase {
 
     private List<Attraction> attractions; // list containing Attraction objects
+    private int maxThrill = 5;
 
     public AttractionDatabase() {
         this.attractions = new ArrayList<>(); // create the list to store attractions
@@ -86,17 +87,37 @@ public class AttractionDatabase {
                 System.out.print("Enter any height restriction for the attraction or 'None': ");
                 String height = attrInput.nextLine(); // height restrictions input
 
-                System.out.print("Enter the thrill level of the attraction (0-5): ");
-                int thrill = attrInput.nextInt(); // thrill level input
-                // Prompts user to only enter values 0 through 5. Will repeat until successful.
-                while (thrill < 0 || thrill > 5){
-                    System.out.print("Invalid. \nEnter the thrill level of the attraction (0-5): ");
-                    thrill = attrInput.nextInt(); // retake thrill level input
-                }
-                attrInput.nextLine(); // clear input
+                boolean isThrillValid = false;
+                int thrill = 0; // Initialize thrill level
+                do {
+                    try {
+                        System.out.print("Enter the thrill level of the attraction (0-5): ");
+                        thrill = attrInput.nextInt(); // Thrill level input
+                        // Prompts user to only enter values 0 through 5. Will repeat until successful.
+                        while (thrill < 0 || thrill > maxThrill) {
+                            System.out.print("Invalid thrill level. Please try again. \nEnter the thrill level of the attraction (0-5): ");
+                            thrill = attrInput.nextInt(); // retake thrill level input
+                        }
+                        attrInput.nextLine();
+                        isThrillValid = true;
+                    } catch (InputMismatchException m) { // Catches InputMismatchExceptions. Will repeat until successful.
+                        System.out.println("Invalid thrill level. Please try again.");
+                        attrInput.nextLine();
+                    }
+                } while (!isThrillValid);
 
-                System.out.print("Enter opening date of attraction (yyyy-mm-dd): ");
-                LocalDate openingDate = LocalDate.parse(attrInput.nextLine()); // opening date input
+                boolean isDateValid = false;
+                LocalDate openingDate = LocalDate.parse("2024-06-06"); // Initialize Opening Date
+                do {
+                    try {
+                        System.out.print("Enter new opening date (yyyy-mm-dd): ");
+                        openingDate = LocalDate.parse(attrInput.nextLine()); // Opening date input
+                        isDateValid = true;
+                    } catch (DateTimeException d) { // Catches DateTimeExceptions. Will repeat until successful.
+                        System.out.println("Invalid date. Please try again");
+                    }
+                } while (!isDateValid);
+
                 // Check that attraction name and location combination is unique
                 if(isUniqueAttraction(name, location)) { // If name & location is unique...
                     // Create Attraction object with data and add to list
@@ -202,15 +223,37 @@ public class AttractionDatabase {
                     System.out.println("Attraction height restriction updated successfully.");
                     break;
                 case 6: // New Thrill Level entry
-                    System.out.print("Enter new thrill level: ");
-                    attraction.setThrill(userInput.nextInt());
-                    userInput.nextLine();
-                    System.out.println("Attraction thrill level updated successfully.");
+                    boolean isThrillValid = false;
+                    do {
+                        try {
+                            System.out.print("Enter new thrill level: ");
+                            int thrill = userInput.nextInt();
+                            while (thrill < 0 || thrill > maxThrill) {
+                                System.out.print("Invalid thrill level. Please try again. \nEnter the thrill level of the attraction (0-5): ");
+                                thrill = userInput.nextInt(); // retake thrill level input
+                            }
+                            attraction.setThrill(thrill);
+                            userInput.nextLine();
+                            isThrillValid = true;
+                            System.out.println("Attraction thrill level updated successfully.");
+                        } catch (InputMismatchException m) {
+                            System.out.println("Invalid thrill level. Please try again.");
+                            userInput.nextLine();
+                        }
+                    } while (!isThrillValid);
                     break;
                 case 7: // New Opening Date entry
-                    System.out.print("Enter new opening date (yyyy-mm-dd): ");
-                    attraction.setOpeningDate(LocalDate.parse(userInput.nextLine()));
-                    System.out.println("Attraction opening date updated successfully.");
+                    boolean isDateValid = false;
+                    do {
+                    try {
+                        System.out.print("Enter new opening date (yyyy-mm-dd): ");
+                        attraction.setOpeningDate(LocalDate.parse(userInput.nextLine()));
+                        isDateValid = true;
+                        System.out.println("Attraction opening date updated successfully.");
+                    } catch (DateTimeException d) {
+                        System.out.println("Invalid date. Please try again");
+                    }
+                    } while (!isDateValid);
                     break;
                 case 8: // Exit option - No change made
                     break;
