@@ -3,7 +3,7 @@
  * CEN 3024C - 31950
  * June 6, 2024
  *
- * Class: Attraction Database
+ * Class: AttractionDatabase
  * This is the database class for the Disney Attractions DMS application.
  * All database CRUD (create, remove, update, delete) methods and calculations
  * are found in this class.
@@ -275,7 +275,7 @@ public class AttractionDatabase {
 
     // Is Unique Attraction method
     // Takes in a name and location and checks if that combination exists in the attraction list.
-    // Returns true or false.
+    // Returns 'true' when unique or 'false' when not unique.
     private boolean isUniqueAttraction(String name, String location){
         for(Attraction attraction : attractions){
             if (attraction.getName().equalsIgnoreCase(name) && attraction.getLocation().equalsIgnoreCase(location)){

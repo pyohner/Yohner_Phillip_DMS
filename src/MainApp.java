@@ -60,8 +60,8 @@ public class MainApp {
                 // Display user menu
                 System.out.println("\nMenu:");
                 System.out.println("1. Add an attraction manually");
-                System.out.println("2. Remove an attraction");
-                System.out.println("3. Update an attraction");
+                System.out.println("2. Update an attraction");
+                System.out.println("3. Remove an attraction");
                 System.out.println("4. Rate an attraction");
                 System.out.println("5. List top 10 attractions");
                 System.out.println("6. List all attractions");
@@ -75,20 +75,20 @@ public class MainApp {
                     case 1: // Add an attraction
                         attractionDatabase.addAttractionManually();
                         break;
-                    case 2: // Remove an attraction
-                        // Prompt the user to enter the ID of the attraction to remove
-                        System.out.print("Enter the ID of the attraction to remove: ");
-                        int attractionToRemove = input.nextInt(); // ID input
-                        // Call removeAttraction with entered ID number (attractionToRemove)
-                        attractionDatabase.removeAttraction(attractionToRemove);
-                        input.nextLine(); // clear input
-                        break;
-                    case 3: // Update an attraction
+                    case 2: // Update an attraction
                         // Prompt the user to enter the ID of the attraction to update
                         System.out.print("Enter the ID of the attraction to update: ");
                         int attractionToUpdate = input.nextInt(); // ID input
                         // Call updateAttraction with entered ID number (attractionToUpdate)
                         attractionDatabase.updateAttraction(attractionToUpdate);
+                        input.nextLine(); // clear input
+                        break;
+                    case 3: // Remove an attraction
+                        // Prompt the user to enter the ID of the attraction to remove
+                        System.out.print("Enter the ID of the attraction to remove: ");
+                        int attractionToRemove = input.nextInt(); // ID input
+                        // Call removeAttraction with entered ID number (attractionToRemove)
+                        attractionDatabase.removeAttraction(attractionToRemove);
                         input.nextLine(); // clear input
                         break;
                     case 4: // Rate an attraction

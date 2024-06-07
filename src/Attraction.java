@@ -40,7 +40,7 @@ public class Attraction {
         this.ratings = new ArrayList<>();
         this.ratings.add(ratings);
     }
-    // Construction - excludes rating
+    // Constructor - excludes rating
     public Attraction(int id, String name, String description, String location, String type, String height, int thrill, LocalDate openingDate) {
         this.id = id;
         this.name = name;
@@ -107,9 +107,10 @@ public class Attraction {
 
     public void addRating (double rating) { ratings.add(rating); }
 
+    // Get Average Rating - calculates the average rating from an attraction's ratings list.
     public double getAverageRating() {
         OptionalDouble average = ratings.stream().mapToDouble(Double::doubleValue).average();
-        return average.isPresent() ? average.getAsDouble() : 0.0;
+        return average.isPresent() ? average.getAsDouble() : 0.0; // Returns the average of the object's ratings
     }
 
     @Override

@@ -8,3 +8,49 @@
 <li>Listing the Top 10 attractions will calculate the average rating for each attraction and then list the top 10 of a rating sorted list.</li>
 <li>Listing all attractions will display all the attractions in the database.</li>
 </ul>
+
+<h2>Flowchart for CRUD Operations and Custom Actions</h2>
+<ol>
+<li>Add Attraction</li>
+<ul>
+<li>Input: Attraction details</li>
+<li>Process: Add to database</li>
+<li>Output: Success (Attraction added) or Failure (Error message)</li>
+</ul>
+<li>Update Attraction</li>
+<ul>
+<li>Input: Attraction ID, Attribute, updated details</li>
+<li>Process: Update database entry</li>
+<li>Output: Success (Attraction updated) or Failure (Error message)</li>
+</ul>
+<li>Remove Attraction</li>
+<ul>
+<li>Input: Attraction ID</li>
+<li>Process: Remove from database</li>
+<li>Output: Success (Attraction removed) or Failure (Error message)</li>
+</ul>
+<li>Rate Attraction</li>
+<ul>
+<li>Input: Attraction ID, rating</li>
+<li>Process: Add to rating list</li>
+<li>Output: Success (Attraction updated) or Failure (Error message)</li>
+</ul>
+<li>List Top 10 Attractions</li>
+<ul>
+<li>Input: Request top 10 list</li>
+<li>Process: Calculate average rating, sort list, and collect top 10 rated attractions</li>
+<li>Output: Display top 10 list or Error message</li>
+</ul>
+<li>List All Attractions</li>
+<ul>
+<li>Input: Request list</li>
+<li>Process: Retrieve all attractions</li>
+<li>Output: Display all attractions or Error message</li>
+</ul>
+<li>Exit</li>
+<ul>
+<li>Input: Request to exit</li>
+<li>Process: Terminate application</li>
+<li>Output: Success (Application closed)</li>
+</ul>
+</ol>
