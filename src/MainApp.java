@@ -95,7 +95,7 @@ public class MainApp {
                                 // Prompt the user to enter the ID of the attraction to remove
                                 System.out.print("Enter the ID of the attraction to remove: ");
                                 int attrIdToRemove = input.nextInt(); // ID input
-                                input.nextLine(); //clear input
+                                //input.nextLine(); //clear input
                                 // Call removeAttraction with entered ID number (removeAttraction (int))
                                 attractionDatabase.removeAttraction(attrIdToRemove);
                                 break;
@@ -139,7 +139,7 @@ public class MainApp {
                         System.out.println("Invalid choice. Please enter a valid option."); // Invalid choice message
                 }
             } catch (InputMismatchException e) { // Catches InputMismatchExceptions
-                System.out.println("Invalid choice. Please enter a valid option."); // Invalid choice message
+                System.out.println("Invalid entry. Please try again."); // Invalid choice message
                 input.nextLine(); // clear input
             }
         } while (!exit); // Exit procedure

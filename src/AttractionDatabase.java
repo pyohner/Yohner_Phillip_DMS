@@ -144,8 +144,12 @@ public class AttractionDatabase {
     public void rateAttraction(int id, double rating) {
         Attraction attraction = getAttractionById(id); // Get attraction by ID
         if (attraction != null) { // If ID exists...
-            attraction.addRating(rating); // Add rating to attraction
-            System.out.println("Rating added successfully.");
+            if( rating >= 0.0 && rating <= 5.0) {
+                attraction.addRating(rating); // Add rating to attraction
+                System.out.println("Rating added successfully.");
+            } else {
+                System.out.println("Invalid rating.");
+            }
         } else { // If ID doesn't exist, let user know
             System.out.println("Attraction not found.");
         }

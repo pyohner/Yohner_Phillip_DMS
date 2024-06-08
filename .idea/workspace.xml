@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="updated gitignore - exclude .idea directory" />
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Added better catching of invalid thrill level and opening date inputs.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,17 +22,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
-      </GitPushTagMode>
-    </option>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -90,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716935311191</updated>
       <workItem from="1716935312468" duration="2313000" />
-      <workItem from="1717015440867" duration="47461000" />
+      <workItem from="1717015440867" duration="40615000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -156,39 +149,7 @@
       <option name="project" value="LOCAL" />
       <updated>1717796844177</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added better catching of invalid thrill level and opening date inputs.">
-      <option name="closed" value="true" />
-      <created>1717796878827</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1717796878827</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added second removal method allowing user to remove using the attraction name and location.">
-      <option name="closed" value="true" />
-      <created>1717866645508</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1717866645508</updated>
-    </task>
-    <task id="LOCAL-00011" summary="updated gitignore - exclude .idea directory">
-      <option name="closed" value="true" />
-      <created>1717867061639</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1717867061639</updated>
-    </task>
-    <task id="LOCAL-00012" summary="updated gitignore - exclude .idea directory">
-      <option name="closed" value="true" />
-      <created>1717867088791</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1717867088791</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,8 +163,6 @@
     <MESSAGE value="Corrected menu order. Added to README.md. Fixed typos." />
     <MESSAGE value="Updated comments." />
     <MESSAGE value="Added better catching of invalid thrill level and opening date inputs." />
-    <MESSAGE value="Added second removal method allowing user to remove using the attraction name and location." />
-    <MESSAGE value="updated gitignore - exclude .idea directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated gitignore - exclude .idea directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added better catching of invalid thrill level and opening date inputs." />
   </component>
 </project>
