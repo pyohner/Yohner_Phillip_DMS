@@ -272,7 +272,7 @@ public class AttractionDatabase {
     }
 
     /*
-    Remove Attraction method
+    Remove Attraction method (1 of 2)
     Takes the attraction ID and iterates through the attractions list for matches.
     The attraction with the matching ID is removed from the list.
      */
@@ -281,12 +281,33 @@ public class AttractionDatabase {
         while (iterator.hasNext()) { // Go through each attraction
             Attraction attraction = iterator.next(); // Take the next attraction
             if (attraction.getId() == attractionId) { // Does the attraction ID match the user's entry?
+                String removedAttraction = "Attraction ID " + attraction.getId() + " ("+attraction.getName() +" at " + attraction.getLocation()+ ")";
                 iterator.remove(); // If so, remove this attraction from the list.
-                System.out.println("Attraction with ID " + attractionId + " removed successfully.");
+                System.out.println(removedAttraction + " removed successfully.");
                 return;
             }
         }
         System.out.println("Attraction with ID " + attractionId + " not found."); // Let user know if no match exists
+    }
+
+    /*
+    Remove Attraction method (2 of 2)
+    Takes the attraction name and location searches through the attractions list for matches.
+    The attraction with the matching name and location is removed from the list.
+     */
+    public void removeAttraction(String name, String location){
+        List<Attraction> matchingAttractions = new ArrayList<>(); // Create a list to hold matching attractions
+        for (Attraction attraction : attractions){ // Go through each attraction in the list
+            if (attraction.getName().equalsIgnoreCase(name) && attraction.getLocation().equalsIgnoreCase(location)) { // When name and location matches...
+                matchingAttractions.add(attraction); // Add matching attraction to matchingAttractions list
+            }
+        }
+        if (matchingAttractions.isEmpty()){ // If the matchingAttractions list is empty, no matches were found
+            System.out.println("Attraction with name '" + name + "' and location '" + location + "' not found."); // Let user know if no match exists
+        } else { // Otherwise, take the matching result - only one result is possible - and remove from attractions list
+            attractions.remove(matchingAttractions.get(0));
+            System.out.println("Attraction ID " + matchingAttractions.get(0).getId() + " ("+matchingAttractions.get(0).getName() +" at " + matchingAttractions.get(0).getLocation() + ") removed successfully."); // Confirm removal
+        }
     }
 
     /*
