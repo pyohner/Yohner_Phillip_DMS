@@ -84,14 +84,35 @@ public class MainApp {
                         input.nextLine(); // clear input
                         break;
                     case 3: // Remove an attraction
-                        // Prompt the user to enter the ID of the attraction to remove
-                        System.out.print("Enter the ID of the attraction to remove: ");
-                        int attractionToRemove = input.nextInt(); // ID input
-                        // Call removeAttraction with entered ID number (attractionToRemove)
-                        attractionDatabase.removeAttraction(attractionToRemove);
-                        input.nextLine(); // clear input
+                        // Ask user if they want to enter an ID or enter the name and location?
+                        System.out.println("Remove by Attraction ID or Attraction Name and Location?: ");
+                        System.out.println("1. Enter Attraction ID");
+                        System.out.println("2. Enter Attraction Name and Location");
+                        int removeOption = input.nextInt();
+                        input.nextLine(); //clear input
+                        switch (removeOption) {
+                            case 1:
+                                // Prompt the user to enter the ID of the attraction to remove
+                                System.out.print("Enter the ID of the attraction to remove: ");
+                                int attrIdToRemove = input.nextInt(); // ID input
+                                input.nextLine(); //clear input
+                                // Call removeAttraction with entered ID number (removeAttraction (int))
+                                attractionDatabase.removeAttraction(attrIdToRemove);
+                                break;
+                            case 2:
+                                // Prompt the user to enter the name of the attraction to remove
+                                System.out.println("Enter the name of the attraction: ");
+                                String attrNameToRemove = input.nextLine();
+                                // Prompt the user to enter the location of the attraction to remove
+                                System.out.println("Enter the location of the attraction: ");
+                                String attrLocationToRemove = input.nextLine();
+                                // Call removeAttraction with entered name and location (removeAttraction (String, String))
+                                attractionDatabase.removeAttraction(attrNameToRemove, attrLocationToRemove);
+                                break;
+                        }
                         break;
                     case 4: // Rate an attraction
+                        // Ask user how
                         // Prompt the user to enter the ID of the attraction to rate
                         System.out.print("Enter the ID of the attraction to rate: ");
                         int attractionToRate = input.nextInt(); // ID input
