@@ -1,13 +1,9 @@
 import org.junit.jupiter.api.DisplayName;
-
 import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.OptionalDouble;
 
 
-class AttractionTest {
+class AttractionTestOLD {
 
     //create an object to be tested
 
@@ -23,7 +19,7 @@ class AttractionTest {
                 "Dark ride",
                 "none",
                 1,
-                LocalDate.of(1972, 10, 01),
+                LocalDate.of(1972, 10, 1),
                 1.0 );
         attraction.addRating(2.0);
     }
@@ -41,8 +37,8 @@ class AttractionTest {
 
         //assertEquals will compare two values and display a message is they aren't equal
         assertEquals(averageRatingTest, attraction.getAverageRating(),"Error: The average rating for the attraction is incorrect");
-
     }
+
 
 
 }

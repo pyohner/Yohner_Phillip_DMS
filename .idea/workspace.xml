@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="fixed rating allowing numbers outside the rating range">
-      <change afterPath="$PROJECT_DIR$/tests/AttractionTest.java" afterDir="false" />
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="added testing - initial">
+      <change afterPath="$PROJECT_DIR$/tests/AttractionDatabaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/AttractionTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DisneyAttrDMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DisneyAttrDMS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AttractionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AttractionTestOLD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +59,8 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.AttractionTest.executor": "Run",
     "JUnit.AttractionTest.getAverageRatingTest.executor": "Run",
+    "JUnit.AttractionTestOLD.executor": "Run",
+    "JUnit.AttractionTests.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -94,30 +97,40 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AttractionTest">
-    <configuration name="AttractionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AttractionTests">
+    <configuration name="AttractionTestOLD" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DisneyAttrDMS" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AttractionTest" />
+      <option name="MAIN_CLASS_NAME" value="AttractionTestOLD" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AttractionTest.getAverageRatingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AttractionTestOLD.getAverageRatingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DisneyAttrDMS" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AttractionTest" />
+      <option name="MAIN_CLASS_NAME" value="AttractionTestOLD" />
       <option name="METHOD_NAME" value="getAverageRatingTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AttractionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DisneyAttrDMS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AttractionTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AttractionTest" />
-        <item itemvalue="JUnit.AttractionTest.getAverageRatingTest" />
+        <item itemvalue="JUnit.AttractionTests" />
+        <item itemvalue="JUnit.AttractionTestOLD" />
+        <item itemvalue="JUnit.AttractionTestOLD.getAverageRatingTest" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717871543499</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added testing - initial">
+      <option name="closed" value="true" />
+      <created>1718653000267</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718653000267</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +240,7 @@
     <MESSAGE value="Updated comments." />
     <MESSAGE value="Added better catching of invalid thrill level and opening date inputs." />
     <MESSAGE value="fixed rating allowing numbers outside the rating range" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed rating allowing numbers outside the rating range" />
+    <MESSAGE value="added testing - initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="added testing - initial" />
   </component>
 </project>

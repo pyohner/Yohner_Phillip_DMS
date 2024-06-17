@@ -29,7 +29,7 @@ public class AttractionDatabase {
 
     // addAttractionsFromFile reads the text file, parses the information one line at a time, and adds
     // the attraction to the list
-    public void addAttractionsFromFile(String filePath){
+    public void addAttractionsFromFile(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -63,8 +63,8 @@ public class AttractionDatabase {
         boolean exit = false; //  menu exit flag
         int nextId = 0; // integer for highest ID number
         // for loop looks for the max ID value in the list and adds 1 to generate a new ID number
-        for(Attraction attraction : attractions){
-            if (attraction.getId() >= nextId){
+        for (Attraction attraction : attractions) {
+            if (attraction.getId() >= nextId) {
                 nextId = attraction.getId() + 1;
             }
         }
@@ -100,7 +100,8 @@ public class AttractionDatabase {
                         }
                         attrInput.nextLine();
                         isThrillValid = true;
-                    } catch (InputMismatchException m) { // Catches InputMismatchExceptions. Will repeat until successful.
+                    } catch (
+                            InputMismatchException m) { // Catches InputMismatchExceptions. Will repeat until successful.
                         System.out.println("Invalid thrill level. Please try again.");
                         attrInput.nextLine();
                     }
@@ -119,7 +120,7 @@ public class AttractionDatabase {
                 } while (!isDateValid);
 
                 // Check that attraction name and location combination is unique
-                if(isUniqueAttraction(name, location)) { // If name & location is unique...
+                if (isUniqueAttraction(name, location)) { // If name & location is unique...
                     // Create Attraction object with data and add to list
                     attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
                     System.out.println("Attraction added successfully.");
@@ -144,7 +145,7 @@ public class AttractionDatabase {
     public void rateAttraction(int id, double rating) {
         Attraction attraction = getAttractionById(id); // Get attraction by ID
         if (attraction != null) { // If ID exists...
-            if( rating >= 0.0 && rating <= 5.0) {
+            if (rating >= 0.0 && rating <= 5.0) {
                 attraction.addRating(rating); // Add rating to attraction
                 System.out.println("Rating added successfully.");
             } else {
@@ -172,101 +173,101 @@ public class AttractionDatabase {
 
         // Update Attraction menu
         do {
-            try{
-            System.out.println("Selected: " + attraction.toString()); // Shows selected attraction
-            System.out.println("Select the attribute to update:");
-            System.out.println("1. Name");
-            System.out.println("2. Description");
-            System.out.println("3. Location");
-            System.out.println("4. Type");
-            System.out.println("5. Height Restriction");
-            System.out.println("6. Thrill Level");
-            System.out.println("7. Opening Date");
-            System.out.println("8. Return to Main Menu");
-            int choice = userInput.nextInt(); // User selection
-            userInput.nextLine();  // clear input
+            try {
+                System.out.println("Selected: " + attraction.toString()); // Shows selected attraction
+                System.out.println("Select the attribute to update:");
+                System.out.println("1. Name");
+                System.out.println("2. Description");
+                System.out.println("3. Location");
+                System.out.println("4. Type");
+                System.out.println("5. Height Restriction");
+                System.out.println("6. Thrill Level");
+                System.out.println("7. Opening Date");
+                System.out.println("8. Return to Main Menu");
+                int choice = userInput.nextInt(); // User selection
+                userInput.nextLine();  // clear input
 
-            switch (choice) {
-                case 1: // New Name entry
-                    System.out.print("Enter new name: ");
-                    String nameInput = userInput.nextLine();
-                    // Checks if name and location combination already exists.
-                    if (isUniqueAttraction(nameInput, attraction.getLocation())){ // If unique...
-                        attraction.setName(nameInput); // Updates name.
-                        System.out.println("Attraction name updated successfully.");
-                    } else { // If not unique, notify user and do not update name.
-                     System.out.println("An attraction with this name already exists at this location.");
-                     System.out.println("Name not updated.");
-                    }
-                    break;
-                case 2: // New Description entry
-                    System.out.print("Enter new description: ");
-                    attraction.setDescription(userInput.nextLine());
-                    System.out.println("Attraction description updated successfully.");
-                    break;
-                case 3: // New Location entry
-                    System.out.print("Enter new location: ");
-                    String locationInput = userInput.nextLine();
-                    // Checks if name and location combination already exists.
-                    if (isUniqueAttraction(attraction.getName(),locationInput)){ // If unique...
-                        attraction.setLocation(userInput.nextLine()); // Updates location.
-                        System.out.println("Attraction location updated successfully.");
-                    } else { // If not unique, notify user and do not update location.
-                        System.out.println("This location you entered already has this attraction.");
-                        System.out.println("Location not updated.");
-                    }
-                    break;
-                case 4: // New Type entry
-                    System.out.print("Enter new type: ");
-                    attraction.setType(userInput.nextLine());
-                    System.out.println("Attraction type updated successfully.");
-                    break;
-                case 5: // New Height Restriction entry
-                    System.out.print("Enter new height restriction: ");
-                    attraction.setHeight(userInput.nextLine());
-                    System.out.println("Attraction height restriction updated successfully.");
-                    break;
-                case 6: // New Thrill Level entry
-                    boolean isThrillValid = false;
-                    do {
-                        try {
-                            System.out.print("Enter new thrill level: ");
-                            int thrill = userInput.nextInt();
-                            while (thrill < 0 || thrill > maxThrill) {
-                                System.out.print("Invalid thrill level. Please try again. \nEnter the thrill level of the attraction (0-5): ");
-                                thrill = userInput.nextInt(); // retake thrill level input
-                            }
-                            attraction.setThrill(thrill);
-                            userInput.nextLine();
-                            isThrillValid = true;
-                            System.out.println("Attraction thrill level updated successfully.");
-                        } catch (InputMismatchException m) {
-                            System.out.println("Invalid thrill level. Please try again.");
-                            userInput.nextLine();
+                switch (choice) {
+                    case 1: // New Name entry
+                        System.out.print("Enter new name: ");
+                        String nameInput = userInput.nextLine();
+                        // Checks if name and location combination already exists.
+                        if (isUniqueAttraction(nameInput, attraction.getLocation())) { // If unique...
+                            attraction.setName(nameInput); // Updates name.
+                            System.out.println("Attraction name updated successfully.");
+                        } else { // If not unique, notify user and do not update name.
+                            System.out.println("An attraction with this name already exists at this location.");
+                            System.out.println("Name not updated.");
                         }
-                    } while (!isThrillValid);
-                    break;
-                case 7: // New Opening Date entry
-                    boolean isDateValid = false;
-                    do {
-                    try {
-                        System.out.print("Enter new opening date (yyyy-mm-dd): ");
-                        attraction.setOpeningDate(LocalDate.parse(userInput.nextLine()));
-                        isDateValid = true;
-                        System.out.println("Attraction opening date updated successfully.");
-                    } catch (DateTimeException d) {
-                        System.out.println("Invalid date. Please try again");
-                    }
-                    } while (!isDateValid);
-                    break;
-                case 8: // Exit option - No change made
-                    break;
-                default: // Invalid choice message
-                    System.out.println("Invalid choice.");
-                    break;
-            }
-            exit = true; // Ok to exit
-            } catch (InputMismatchException e){ // catches InputMismatchException and restarts menu
+                        break;
+                    case 2: // New Description entry
+                        System.out.print("Enter new description: ");
+                        attraction.setDescription(userInput.nextLine());
+                        System.out.println("Attraction description updated successfully.");
+                        break;
+                    case 3: // New Location entry
+                        System.out.print("Enter new location: ");
+                        String locationInput = userInput.nextLine();
+                        // Checks if name and location combination already exists.
+                        if (isUniqueAttraction(attraction.getName(), locationInput)) { // If unique...
+                            attraction.setLocation(userInput.nextLine()); // Updates location.
+                            System.out.println("Attraction location updated successfully.");
+                        } else { // If not unique, notify user and do not update location.
+                            System.out.println("This location you entered already has this attraction.");
+                            System.out.println("Location not updated.");
+                        }
+                        break;
+                    case 4: // New Type entry
+                        System.out.print("Enter new type: ");
+                        attraction.setType(userInput.nextLine());
+                        System.out.println("Attraction type updated successfully.");
+                        break;
+                    case 5: // New Height Restriction entry
+                        System.out.print("Enter new height restriction: ");
+                        attraction.setHeight(userInput.nextLine());
+                        System.out.println("Attraction height restriction updated successfully.");
+                        break;
+                    case 6: // New Thrill Level entry
+                        boolean isThrillValid = false;
+                        do {
+                            try {
+                                System.out.print("Enter new thrill level: ");
+                                int thrill = userInput.nextInt();
+                                while (thrill < 0 || thrill > maxThrill) {
+                                    System.out.print("Invalid thrill level. Please try again. \nEnter the thrill level of the attraction (0-5): ");
+                                    thrill = userInput.nextInt(); // retake thrill level input
+                                }
+                                attraction.setThrill(thrill);
+                                userInput.nextLine();
+                                isThrillValid = true;
+                                System.out.println("Attraction thrill level updated successfully.");
+                            } catch (InputMismatchException m) {
+                                System.out.println("Invalid thrill level. Please try again.");
+                                userInput.nextLine();
+                            }
+                        } while (!isThrillValid);
+                        break;
+                    case 7: // New Opening Date entry
+                        boolean isDateValid = false;
+                        do {
+                            try {
+                                System.out.print("Enter new opening date (yyyy-mm-dd): ");
+                                attraction.setOpeningDate(LocalDate.parse(userInput.nextLine()));
+                                isDateValid = true;
+                                System.out.println("Attraction opening date updated successfully.");
+                            } catch (DateTimeException d) {
+                                System.out.println("Invalid date. Please try again");
+                            }
+                        } while (!isDateValid);
+                        break;
+                    case 8: // Exit option - No change made
+                        break;
+                    default: // Invalid choice message
+                        System.out.println("Invalid choice.");
+                        break;
+                }
+                exit = true; // Ok to exit
+            } catch (InputMismatchException e) { // catches InputMismatchException and restarts menu
                 System.out.println("Invalid entry. Please try again.");
                 userInput.nextLine(); // clear input
             } catch (DateTimeException d) { // catches DateTimeException and restarts menu
@@ -285,7 +286,7 @@ public class AttractionDatabase {
         while (iterator.hasNext()) { // Go through each attraction
             Attraction attraction = iterator.next(); // Take the next attraction
             if (attraction.getId() == attractionId) { // Does the attraction ID match the user's entry?
-                String removedAttraction = "Attraction ID " + attraction.getId() + " ("+attraction.getName() +" at " + attraction.getLocation()+ ")";
+                String removedAttraction = "Attraction ID " + attraction.getId() + " (" + attraction.getName() + " at " + attraction.getLocation() + ")";
                 iterator.remove(); // If so, remove this attraction from the list.
                 System.out.println(removedAttraction + " removed successfully.");
                 return;
@@ -299,18 +300,18 @@ public class AttractionDatabase {
     Takes the attraction name and location searches through the attractions list for matches.
     The attraction with the matching name and location is removed from the list.
      */
-    public void removeAttraction(String name, String location){
+    public void removeAttraction(String name, String location) {
         List<Attraction> matchingAttractions = new ArrayList<>(); // Create a list to hold matching attractions
-        for (Attraction attraction : attractions){ // Go through each attraction in the list
+        for (Attraction attraction : attractions) { // Go through each attraction in the list
             if (attraction.getName().equalsIgnoreCase(name) && attraction.getLocation().equalsIgnoreCase(location)) { // When name and location matches...
                 matchingAttractions.add(attraction); // Add matching attraction to matchingAttractions list
             }
         }
-        if (matchingAttractions.isEmpty()){ // If the matchingAttractions list is empty, no matches were found
+        if (matchingAttractions.isEmpty()) { // If the matchingAttractions list is empty, no matches were found
             System.out.println("Attraction with name '" + name + "' and location '" + location + "' not found."); // Let user know if no match exists
         } else { // Otherwise, take the matching result - only one result is possible - and remove from attractions list
             attractions.remove(matchingAttractions.get(0));
-            System.out.println("Attraction ID " + matchingAttractions.get(0).getId() + " ("+matchingAttractions.get(0).getName() +" at " + matchingAttractions.get(0).getLocation() + ") removed successfully."); // Confirm removal
+            System.out.println("Attraction ID " + matchingAttractions.get(0).getId() + " (" + matchingAttractions.get(0).getName() + " at " + matchingAttractions.get(0).getLocation() + ") removed successfully."); // Confirm removal
         }
     }
 
@@ -365,9 +366,9 @@ public class AttractionDatabase {
     Takes in a name and location (Strings) and checks if that combination exists in the attraction list.
     Returns 'true' when unique or 'false' when not unique.
      */
-    private boolean isUniqueAttraction(String name, String location){
-        for(Attraction attraction : attractions){
-            if (attraction.getName().equalsIgnoreCase(name) && attraction.getLocation().equalsIgnoreCase(location)){
+    private boolean isUniqueAttraction(String name, String location) {
+        for (Attraction attraction : attractions) {
+            if (attraction.getName().equalsIgnoreCase(name) && attraction.getLocation().equalsIgnoreCase(location)) {
                 return false;
             }
         }
