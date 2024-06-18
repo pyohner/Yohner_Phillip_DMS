@@ -19,7 +19,7 @@ class AttractionTests {
                 "Dark ride",
                 "none",
                 1,
-                LocalDate.of(1972, 10, 1),
+                LocalDate.parse("1972-10-01"),
                 1.0 );
         attraction.addRating(2.0);
     }
@@ -28,7 +28,6 @@ class AttractionTests {
     @DisplayName("getID Test")
     void getId() {
         assertEquals(attraction.getId(), 100, "Error retrieving ID (getID)");
-
     }
 
     @Test
@@ -119,7 +118,8 @@ class AttractionTests {
     @Test
     @DisplayName("getOpeningDate Test")
     void getOpeningDate() {
-        assertEquals(attraction.getOpeningDate(), LocalDate.of(1972,10,1), "Error retrieving opening date (getOpeningDate)");
+        String dateEntered = "1972-10-01";
+        assertEquals(attraction.getOpeningDate(), LocalDate.parse(dateEntered), "Error retrieving opening date (getOpeningDate)");
     }
 
     @Test
@@ -145,7 +145,7 @@ class AttractionTests {
     }
 
     @Test
-    @DisplayName("Computer Average Rating Test")
+    @DisplayName("Compute Average Rating Test")
     void getAverageRating() {
         //using our own testing data, compute the average rating
         double sum = 0.0;

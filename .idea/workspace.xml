@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="added testing - initial">
-      <change afterPath="$PROJECT_DIR$/tests/AttractionDatabaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/AttractionTests.java" afterDir="false" />
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="deleted old AttractionTestOLD.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AttractionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AttractionTestOLD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AttractionDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AttractionDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AttractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AttractionTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +55,7 @@
   "keyToString": {
     "Application.MainApp.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AttractionDatabaseTest.executor": "Run",
     "JUnit.AttractionTest.executor": "Run",
     "JUnit.AttractionTest.getAverageRatingTest.executor": "Run",
     "JUnit.AttractionTestOLD.executor": "Run",
@@ -97,7 +96,16 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AttractionTests">
+  <component name="RunManager" selected="JUnit.AttractionDatabaseTest">
+    <configuration name="AttractionDatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DisneyAttrDMS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AttractionDatabaseTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AttractionTestOLD" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DisneyAttrDMS" />
       <option name="PACKAGE_NAME" value="" />
@@ -128,6 +136,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AttractionDatabaseTest" />
         <item itemvalue="JUnit.AttractionTests" />
         <item itemvalue="JUnit.AttractionTestOLD" />
         <item itemvalue="JUnit.AttractionTestOLD.getAverageRatingTest" />
@@ -225,7 +234,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718653000267</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="attraction testing completed">
+      <option name="closed" value="true" />
+      <created>1718660638792</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718660638792</updated>
+    </task>
+    <task id="LOCAL-00012" summary="deleted old AttractionTestOLD.java">
+      <option name="closed" value="true" />
+      <created>1718660725431</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1718660725431</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +266,8 @@
     <MESSAGE value="Added better catching of invalid thrill level and opening date inputs." />
     <MESSAGE value="fixed rating allowing numbers outside the rating range" />
     <MESSAGE value="added testing - initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="added testing - initial" />
+    <MESSAGE value="attraction testing completed" />
+    <MESSAGE value="deleted old AttractionTestOLD.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted old AttractionTestOLD.java" />
   </component>
 </project>
