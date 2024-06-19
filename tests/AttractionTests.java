@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AttractionTests {
 
-    Attraction attraction;
+    Attraction attraction;  //  Create a test attraction object
 
     @BeforeEach
     void setUp() {
-        //supply test data to an attraction object
+        //supply test data for the test attraction object
         attraction = new Attraction(100,
                 "Mr. Toad's",
                 "it's no more",
@@ -27,19 +27,22 @@ class AttractionTests {
     @Test
     @DisplayName("getID Test")
     void getId() {
+        // Assert that the id is correctly retrieved
         assertEquals(attraction.getId(), 100, "Error retrieving ID (getID)");
     }
 
     @Test
     @DisplayName("setID Test")
     void setId() {
-        attraction.setId(101);
+        attraction.setId(101); // Set ID
+        // Assert that the id updated
         assertEquals(attraction.getId(), 101, "Error setting ID (setId)");
     }
 
     @Test
     @DisplayName("getName Test")
     void getName() {
+        // Assert that the name is correctly retrieved
         assertEquals(attraction.getName(),"Mr. Toad's", "Error retrieving name (getName)" );
     }
 
@@ -47,12 +50,14 @@ class AttractionTests {
     @DisplayName("setName Test")
     void setName() {
         attraction.setName("Mr.Toad's Wild Ride");
+        // Assert that the name updated correctly
         assertEquals(attraction.getName(),"Mr.Toad's Wild Ride", "Error setting name (setName)" );
     }
 
     @Test
     @DisplayName("getDescription Test")
     void getDescription() {
+        // Assert that the description is correctly retrieved
         assertEquals(attraction.getDescription(), "it's no more", "Error getting description (getDescription)");
     }
 
@@ -60,12 +65,14 @@ class AttractionTests {
     @DisplayName("setDescription Test")
     void setDescription() {
         attraction.setDescription("A romping ride with Mr. Toad.");
+        // Assert that the description updated correctly
         assertEquals(attraction.getDescription(), "A romping ride with Mr. Toad.", "Error setting description (setDescription)");
     }
 
     @Test
     @DisplayName("getLocation Test")
     void getLocation() {
+        // Assert that the location is correctly retrieved
         assertEquals(attraction.getLocation(), "WDW-Fantsyland", "Error getting location (getLocation)");
     }
 
@@ -73,12 +80,14 @@ class AttractionTests {
     @DisplayName("setLocation Test")
     void setLocation() {
         attraction.setLocation("WDW-Fantasyland");
+        // Assert that the location updated correctly
         assertEquals(attraction.getLocation(), "WDW-Fantasyland", "Error setting location (setLocation)");
     }
 
     @Test
     @DisplayName("getType Test")
     void getType() {
+        // Assert that the type is correctly retrieved
         assertEquals(attraction.getType(), "Dark ride", "Error getting type (getType)");
     }
 
@@ -92,6 +101,7 @@ class AttractionTests {
     @Test
     @DisplayName("getHeight Test")
     void getHeight() {
+        // Assert that the height is correctly retrieved
         assertEquals(attraction.getHeight(), "none", "Error getting height (getHeight)");
     }
 
@@ -105,6 +115,7 @@ class AttractionTests {
     @Test
     @DisplayName("getThrill Test")
     void getThrill() {
+        // Assert that the thrill is correctly retrieved
         assertEquals(attraction.getThrill(), 1, "Error retrieving thrill (getThrill");
     }
 
@@ -119,6 +130,7 @@ class AttractionTests {
     @DisplayName("getOpeningDate Test")
     void getOpeningDate() {
         String dateEntered = "1972-10-01";
+        // Assert that the opening date is correctly retrieved
         assertEquals(attraction.getOpeningDate(), LocalDate.parse(dateEntered), "Error retrieving opening date (getOpeningDate)");
     }
 
@@ -141,13 +153,14 @@ class AttractionTests {
     @Test
     @DisplayName("getRatings Test")
     void getRatings() {
+        // Assert that the ratings are correctly retrieved
         assertEquals(attraction.getRatings().size(), 2, "Error retrieving ratings (getRatings)");
     }
 
     @Test
     @DisplayName("Compute Average Rating Test")
     void getAverageRating() {
-        //using our own testing data, compute the average rating
+        // using our own testing data, compute the average rating
         double sum = 0.0;
         int listSize = attraction.getRatings().size();
         for (Double value : attraction.getRatings()){
@@ -173,6 +186,7 @@ class AttractionTests {
                 ", openingDate=" + attraction.getOpeningDate() +
                 ", averageRating=" + attraction.getAverageRating() +
                 '}';
+        // Assert the toString displays as expected
         assertEquals(attraction.toString(), expectedString, "Error retrieving attraction toString");
     }
 }

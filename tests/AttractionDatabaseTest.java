@@ -3,7 +3,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.*;
@@ -44,7 +46,7 @@ class AttractionDatabaseTest {
 
     @Test
     @DisplayName("addAttractionsFromFile Test")
-    void addAttractionsFromFile() throws Exception {
+    void addAttractionsFromFile() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         String line;
         int startingSize = 2;
@@ -70,7 +72,7 @@ class AttractionDatabaseTest {
 
     @Test
     @DisplayName("addAttractionsManually Test")
-    void addAttractionManually() throws InputMismatchException, DateTimeException {
+    void addAttractionManually() throws DateTimeException {
         int nextId = 0;
         for (Attraction attraction : attractions) {
             if (attraction.getId() >= nextId) {
@@ -96,7 +98,7 @@ class AttractionDatabaseTest {
 
     @Test
     @DisplayName("rateAttraction Test")
-    void rateAttraction() throws InputMismatchException, NullPointerException {
+    void rateAttraction() throws NullPointerException {
         int id = 100;
         double rating = 3.0;
         Attraction matchingAttr = attractions.stream().filter(attraction -> attraction.getId() == id).findFirst().orElse(null); // Get attraction by ID
@@ -107,7 +109,7 @@ class AttractionDatabaseTest {
 
     @Test
     @DisplayName("updateAttraction Test")
-    void updateAttraction() throws InputMismatchException, DateTimeException, NullPointerException {
+    void updateAttraction() throws DateTimeException, NullPointerException {
         int id = 100;
         Attraction matchingAttr = attractions.stream().filter(attraction1 -> attraction1.getId() == id).findFirst().orElse(null); // Get attraction by ID
         matchingAttr.setName("Switch up");

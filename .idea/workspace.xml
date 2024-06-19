@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="deleted old AttractionTestOLD.java">
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="added tests for AttractionDatabaseTest and AttractionTests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/AttractionDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AttractionDatabaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/AttractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AttractionTests.java" afterDir="false" />
@@ -96,7 +96,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AttractionDatabaseTest">
+  <component name="RunManager" selected="JUnit.AttractionTests">
     <configuration name="AttractionDatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DisneyAttrDMS" />
       <option name="PACKAGE_NAME" value="" />
@@ -136,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AttractionDatabaseTest" />
         <item itemvalue="JUnit.AttractionTests" />
+        <item itemvalue="JUnit.AttractionDatabaseTest" />
         <item itemvalue="JUnit.AttractionTestOLD" />
         <item itemvalue="JUnit.AttractionTestOLD.getAverageRatingTest" />
       </list>
@@ -250,7 +250,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718660725431</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added tests for AttractionDatabaseTest and AttractionTests">
+      <option name="closed" value="true" />
+      <created>1718753734326</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718753734326</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added tests for AttractionDatabaseTest and AttractionTests">
+      <option name="closed" value="true" />
+      <created>1718753935492</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718753935492</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +284,7 @@
     <MESSAGE value="added testing - initial" />
     <MESSAGE value="attraction testing completed" />
     <MESSAGE value="deleted old AttractionTestOLD.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted old AttractionTestOLD.java" />
+    <MESSAGE value="added tests for AttractionDatabaseTest and AttractionTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tests for AttractionDatabaseTest and AttractionTests" />
   </component>
 </project>
