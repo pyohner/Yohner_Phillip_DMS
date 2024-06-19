@@ -1,3 +1,12 @@
+/* Phillip Yohner
+ * CEN 3024C - 31950
+ * June 19, 2024
+ *
+ * Class: AttractionTests
+ * This is a test class to test all methods.
+ *
+*/
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -95,6 +104,7 @@ class AttractionTests {
     @DisplayName("setType Test")
     void setType() {
         attraction.setType("Slow car ride");
+        // Assert that the type is updated correctly
         assertEquals(attraction.getType(), "Slow car ride", "Error setting type (setType)");
     }
 
@@ -109,6 +119,7 @@ class AttractionTests {
     @DisplayName("setHeight Test")
     void setHeight() {
         attraction.setHeight("2 feet");
+        // Assert that the height is updated correctly
         assertEquals(attraction.getHeight(), "2 feet", "Error setting height (setHeight)");
     }
 
@@ -123,6 +134,7 @@ class AttractionTests {
     @DisplayName("setThrill Test")
     void setThrill() {
         attraction.setThrill(3);
+        // Assert that the thrill is updated correctly
         assertEquals(attraction.getThrill(), 3, "Error setting thrill (setThrill)");
     }
 
@@ -138,6 +150,7 @@ class AttractionTests {
     @DisplayName("setOpeningDate Test")
     void setOpeningDate() {
         attraction.setOpeningDate(LocalDate.of(1971, 10, 1));
+        // Assert that the opening date is updated correctly
         assertEquals(attraction.getOpeningDate(), LocalDate.of(1971,10,1), "Error setting opening date (setOpeningDate)");
     }
 
@@ -146,6 +159,7 @@ class AttractionTests {
     void addRating() {
         int initialListSize = attraction.getRatings().size();
         attraction.addRating(3.0);
+        // Assert that the rating is updated correctly
         assertEquals(attraction.getRatings().size(), initialListSize + 1, "Error adding rating (addRating)");
         assertTrue(attraction.getRatings().contains(3.0));
     }
@@ -167,8 +181,7 @@ class AttractionTests {
             sum += value;
         }
         Double averageRatingTest = sum / listSize;
-
-        //assertEquals will compare two values and display a message is they aren't equal
+        // Assert that the average rating computes correctly
         assertEquals(averageRatingTest, attraction.getAverageRating(),"Error: The average rating for the attraction is incorrect");
 
     }
