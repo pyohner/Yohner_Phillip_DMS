@@ -24,8 +24,16 @@
 *    each attraction and then list the top 10 of a rating sorted list.
 * - Listing all attractions will display all the attractions in the database.
 *
+* Update: June 27, 2024
+* Implemented graphical user interface (GUI). User activities remain the
+* same, except for added feature to allow user to load in their own file.
+* User menus designed using Swing UI Designer.
+* Console activities commented-out (disabled).
+*
 */
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -33,12 +41,31 @@ public class MainApp {
 
     public static void main(String[] args) {
 
+        // Splash screen for a little magic
+        JWindow splashScreen = new JWindow();
+        JPanel content = (JPanel) splashScreen.getContentPane();
+        content.setBackground(Color.white);
+        // Splash screen size and location
+        int width = 400;
+        int height = 300;
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screen.width - width) / 2;
+        int y = (screen.height - height) / 2;
+        splashScreen.setBounds(x, y, width, height);
+        // Add an image and loading message
+        JLabel label = new JLabel(new ImageIcon(MainApp.class.getResource("/resources/mickey-ears1-100px.png")));
+        JLabel loadingText = new JLabel("Loading something magical, please wait...", JLabel.CENTER);
+        content.add(label, BorderLayout.CENTER);
+        content.add(loadingText, BorderLayout.SOUTH);
+        // Display the splash screen
+        splashScreen.setVisible(true);
+
         // Create database(list) object for the attractions
         AttractionDatabase attractionDatabase = new AttractionDatabase();
         // Create Scanner for user inputs
         Scanner input = new Scanner(System.in);
         // The filepath to the text file with comma separated values
-        String filePath = "src/attractions.txt";
+        String filePath = "/resources/attractions.txt";
         System.out.println("Loading data...");
         // addAttractionFromFile adds the list from the text file to the database(list)
         attractionDatabase.addAttractionsFromFile(filePath);
@@ -51,7 +78,23 @@ public class MainApp {
         System.out.println("*                                               *");
         System.out.println("*************************************************");
 
-        Frame mainFrame = new Frame(attractionDatabase);
+        try {
+            Thread.sleep(3000); // Provide a little loading time (3 seconds)
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Remove splash screen
+        splashScreen.setVisible(false);
+        splashScreen.dispose();
+
+        // Create main menu
+        MainMenuFrame mainFrame = new MainMenuFrame(attractionDatabase);
+
+        // ******  See MainMenuFrame and UpdateMenu classes for GUI actions.  ******
+
+        /*
+        // ******  Console-based activities are below...  ******
 
         int choice; // integer variable for menu selection from user
         boolean exit = false; // menu exit variable
@@ -147,5 +190,7 @@ public class MainApp {
             }
         } while (!exit); // Exit procedure
         input.close(); // close input Scanner
+
+         */
     }
 }

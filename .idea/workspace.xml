@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DisneyAttrDMS:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="added tests for AttractionDatabaseTest and AttractionTests">
-      <change afterPath="$PROJECT_DIR$/src/Frame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainMenuView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UpdateMenu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UpdateMenu.java" afterDir="false" />
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="GUI implemented">
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/mickey-ears1-100px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/mickey-ears1-25px.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenuFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainMenuView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenuView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UpdateMenu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateMenu.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UpdateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/attractions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/attractions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,39 +64,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.AttractionDatabaseTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AttractionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AttractionTest.getAverageRatingTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AttractionTestOLD.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AttractionTests.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yohnep25/IdeaProjects/DisneyAttrDMS/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright.profiles&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainApp.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AttractionDatabaseTest.executor": "Run",
+    "JUnit.AttractionTest.executor": "Run",
+    "JUnit.AttractionTest.getAverageRatingTest.executor": "Run",
+    "JUnit.AttractionTestOLD.executor": "Run",
+    "JUnit.AttractionTests.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yohnep25/IdeaProjects/DisneyAttrDMS/src/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yohnep25\IdeaProjects\DisneyAttrDMS\src\resources" />
       <recent name="C:\Users\yohnep25\IdeaProjects\DisneyAttrDMS\src" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -281,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718753935492</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="GUI implemented">
+      <option name="closed" value="true" />
+      <created>1719448871719</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1719448871719</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +318,8 @@
     <MESSAGE value="attraction testing completed" />
     <MESSAGE value="deleted old AttractionTestOLD.java" />
     <MESSAGE value="added tests for AttractionDatabaseTest and AttractionTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tests for AttractionDatabaseTest and AttractionTests" />
+    <MESSAGE value="Merge remote-tracking branch 'github/main'" />
+    <MESSAGE value="GUI implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI implemented" />
   </component>
 </project>

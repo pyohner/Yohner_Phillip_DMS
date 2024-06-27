@@ -1,3 +1,14 @@
+/*
+ * Phillip Yohner
+ * CEN 3024C - 31950
+ * June 27, 2024
+ *
+ * Class: UpdateMenu
+ * This class defines the update menu GUI interface.
+ * The user clicks a button corresponding with the attribute they wish to update.
+ *
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,7 +44,6 @@ public class UpdateMenu extends JFrame {
         Attraction attraction = AttractionDatabase.getAttractionById(id);
         lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
         setVisible(true);
-
 
         btnUpdateName.addActionListener(new ActionListener() {
             @Override
@@ -79,7 +89,7 @@ public class UpdateMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int thrill = Integer.parseInt(JOptionPane.showInputDialog("Enter the thrill level: "));
+                    int thrill = Integer.parseInt(JOptionPane.showInputDialog("Enter the thrill level (0-5): "));
                     if (thrill < 0 || thrill > 5) {
                         JOptionPane.showMessageDialog(new JOptionPane(), "Invalid thrill level.");
                     } else {
@@ -97,7 +107,7 @@ public class UpdateMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    LocalDate openingDate = LocalDate.parse(JOptionPane.showInputDialog("Enter the opening date: "));
+                    LocalDate openingDate = LocalDate.parse(JOptionPane.showInputDialog("Enter the opening date (yyyy-mm-dd): "));
                     attraction.setOpeningDate(openingDate);
                     lbSelectedAttraction.setText("<html><body style='width: 300px;'>" + attraction.toString() + "</body></html>");
                 } catch (DateTimeException d){
@@ -114,5 +124,4 @@ public class UpdateMenu extends JFrame {
             }
         });
     }
-
 }

@@ -1,9 +1,20 @@
+/*
+ * Phillip Yohner
+ * CEN 3024C - 31950
+ * June 27, 2024
+ *
+ * Class: MainMenuFrame
+ * This class defines the main menu GUI.
+ * The user clicks a button corresponding with the activity.
+ *
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Frame extends JFrame {
+public class MainMenuFrame extends JFrame {
     private JPanel mainMenuPanel;
     private JButton btnAddAttraction;
     private JButton btnUpdateAttraction;
@@ -15,31 +26,28 @@ public class Frame extends JFrame {
     private JButton btnExit;
     private JLabel lbTitle;
     private JButton btnRemoveAttractionByNameLocation;
+    private JButton btnLoadAttractionsFromFile;
+    private JLabel lbAttractionCount;
 
 
-
-    public Frame(AttractionDatabase attractionDatabase){
+    public MainMenuFrame(AttractionDatabase attractionDatabase){
         setContentPane(mainMenuPanel);
         setTitle("Disney Attractions DMS");
-        setSize(450,350);
+        setSize(450,400);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         lbTitle.setFont(new Font("Roboto", Font.BOLD, 24));
+        getContentPane().setBackground(Color.white);
         setVisible(true);
         this.attractionDatabase = attractionDatabase;
+
+        lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
+
         btnAddAttraction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                String name = JOptionPane.showInputDialog("Enter name: ");
-//                String description = JOptionPane.showInputDialog("Enter description: ");
-//                String location = JOptionPane.showInputDialog("Enter location: ");
-//                String type = JOptionPane.showInputDialog("Enter type: ");
-//                String height = JOptionPane.showInputDialog("Enter height restriction: ");
-//                int thrill = Integer.parseInt(JOptionPane.showInputDialog("Enter thrill level: "));
-//                LocalDate openingDate = LocalDate.parse(JOptionPane.showInputDialog("Enter opening date (yyyy-mm-dd): "));
-//
-//                attractionDatabase.addAttractionManually(name, description, location, type, height, thrill, openingDate );
                 attractionDatabase.addAttractionManually();
+                lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
             }
         });
         btnUpdateAttraction.addActionListener(new ActionListener() {
@@ -71,6 +79,7 @@ public class Frame extends JFrame {
                 try {
                     int id = Integer.parseInt(JOptionPane.showInputDialog("Enter Attraction ID: "));
                     attractionDatabase.removeAttraction(id);
+                    lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
                 } catch (NumberFormatException n) {
                     JOptionPane.showMessageDialog(new JOptionPane(), "Invalid entry.", "Invalid", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -91,8 +100,11 @@ public class Frame extends JFrame {
         btnViewAll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               JOptionPane.showMessageDialog(attractionDatabase, attractionDatabase.viewAttractions(), "List of all attractions", JOptionPane.INFORMATION_MESSAGE);
-
+                JTextArea listArea = new JTextArea(51, 100);
+                listArea.setText(attractionDatabase.viewAttractions());
+                JScrollPane scrollPane = new JScrollPane(listArea);
+               JOptionPane.showMessageDialog(null, scrollPane, "List of all attractions", JOptionPane.INFORMATION_MESSAGE);
+                
             }
         });
         btnExit.addActionListener(new ActionListener() {
@@ -107,8 +119,16 @@ public class Frame extends JFrame {
                     String name = JOptionPane.showInputDialog("Enter attraction name: ");
                     String location = JOptionPane.showInputDialog("Enter attraction location: ");
                     attractionDatabase.removeAttraction(name, location);
+                    lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
+            }
+        });
+        btnLoadAttractionsFromFile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    String filePath = JOptionPane.showInputDialog("Enter the path of the text (.txt) file: ");
+                    attractionDatabase.addAttractionsFromFile(filePath);
+                    lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
             }
         });
     }
-
 }

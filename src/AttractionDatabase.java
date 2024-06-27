@@ -8,14 +8,16 @@
  * All database CRUD (create, remove, update, delete) methods and calculations
  * are found in this class.
  *
+ * Update: June 27, 2024
+ * Class updated for GUI functionality. Console actions commented-out.
+ *
  */
 
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.*;
@@ -25,6 +27,7 @@ public class AttractionDatabase extends Component {
 
     private static List<Attraction> attractions; // list containing Attraction objects
     private int maxThrill = 5;
+    public static int listSize;
 
     public AttractionDatabase() {
         this.attractions = new ArrayList<>(); // create the list to store attractions
@@ -33,7 +36,10 @@ public class AttractionDatabase extends Component {
     // addAttractionsFromFile reads the text file, parses the information one line at a time, and adds
     // the attraction to the list
     public void addAttractionsFromFile(String filePath) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (InputStream inputStream = getClass().getResourceAsStream(filePath);
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)))
+//        BufferedReader br = new BufferedReader(new FileReader(filePath)))
+        {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -48,10 +54,15 @@ public class AttractionDatabase extends Component {
                 double rating = Double.parseDouble(parts[8]); // initial Rating
                 // Create Attraction object with parsed data and add to list
                 attractions.add(new Attraction(id, name, description, location, type, height, thrill, openingDate, rating));
+                listSize++;
             }
+
         } catch (IOException e) { // Catches IOException. Will print stack trace and application will exit
-            System.out.println("Failed to load data from file. Check file location in MainApp");
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(new JOptionPane(), "Failed to load data from file. Check file location.", "Failed to Load", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Failed to load data from file. Check file location.");
+        } catch (NullPointerException n) {
+            JOptionPane.showMessageDialog(new JOptionPane(), "Failed to load data from file. Check file location.", "Failed to Load", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Failed to load data from file. Check file location.");
         }
     }
 
@@ -61,26 +72,9 @@ public class AttractionDatabase extends Component {
     The ID is auto-generated.
     Adds the attraction to the database.
      */
-    public void addAttractionManually(String name, String description, String location, String type, String height, int thrill, LocalDate openingDate){
-        int nextId = 0; // integer for highest ID number
-        // for loop looks for the max ID value in the list and adds 1 to generate a new ID number
-        for (Attraction attraction : attractions) {
-            if (attraction.getId() >= nextId) {
-                nextId = attraction.getId() + 1;
-            }
-        }
-        if (isUniqueAttraction(name, location)) { // If name & location is unique...
-            // Create Attraction object with data and add to list
-            attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
-            JOptionPane.showMessageDialog(this, "Attraction added!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            System.out.println("Attraction added successfully.");
-        } else { // If name & location is not unique, notify user
-            JOptionPane.showMessageDialog(this, "This attraction name and location already exists.", "Failed", JOptionPane.INFORMATION_MESSAGE);
-            System.out.println("This attraction name and location already exists.");
-        }
-    }
+
     public void addAttractionManually() {
-        Scanner attrInput = new Scanner(System.in); // create Scanner for user input
+//        Scanner attrInput = new Scanner(System.in); // create Scanner for user input
         boolean exit = false; //  menu exit flag
         int nextId = 0; // integer for highest ID number
         // for loop looks for the max ID value in the list and adds 1 to generate a new ID number
@@ -117,7 +111,7 @@ public class AttractionDatabase extends Component {
                 int thrill = 0; // Initialize thrill level
                 do {
                     try {
-                        thrill = Integer.parseInt(JOptionPane.showInputDialog("Enter thrill level: "));
+                        thrill = Integer.parseInt(JOptionPane.showInputDialog("Enter thrill level (0-5): "));
 //                        System.out.print("Enter the thrill level of the attraction (0-5): ");
 //                        thrill = attrInput.nextInt(); // Thrill level input
                         // Prompts user to only enter values 0 through 5. Will repeat until successful.
@@ -140,7 +134,7 @@ public class AttractionDatabase extends Component {
                 } while (!isThrillValid);
 
                 boolean isDateValid = false;
-                LocalDate openingDate = LocalDate.parse("2024-06-06"); // Initialize Opening Date
+                LocalDate openingDate = LocalDate.now(); // Initialize Opening Date
                 do {
                     try {
                         openingDate = LocalDate.parse(JOptionPane.showInputDialog("Enter opening date (yyyy-mm-dd): "));
@@ -157,6 +151,7 @@ public class AttractionDatabase extends Component {
                 if (isUniqueAttraction(name, location)) { // If name & location is unique...
                     // Create Attraction object with data and add to list
                     attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
+                    listSize++;
                     JOptionPane.showMessageDialog(this, "Attraction added!", "Success", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Attraction added successfully.");
                 } else { // If name & location is not unique, notify user
@@ -354,6 +349,7 @@ public class AttractionDatabase extends Component {
             if (attraction.getId() == attractionId) { // Does the attraction ID match the user's entry?
                 String removedAttraction = "Attraction ID " + attraction.getId() + " (" + attraction.getName() + " at " + attraction.getLocation() + ")";
                 iterator.remove(); // If so, remove this attraction from the list.
+                listSize--;
                 JOptionPane.showMessageDialog(new JOptionPane(), removedAttraction + " removed successfully.","Removed", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println(removedAttraction + " removed successfully.");
                 return;
@@ -380,6 +376,7 @@ public class AttractionDatabase extends Component {
             System.out.println("Attraction with name '" + name + "' and location '" + location + "' not found."); // Let user know if no match exists
         } else { // Otherwise, take the matching result - only one result is possible - and remove from attractions list
             attractions.remove(matchingAttractions.get(0));
+            listSize--;
             JOptionPane.showMessageDialog(new JOptionPane(), "Attraction ID " + matchingAttractions.get(0).getId() + " (" + matchingAttractions.get(0).getName() + " at " + matchingAttractions.get(0).getLocation() + ") removed successfully.", "Removed", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("Attraction ID " + matchingAttractions.get(0).getId() + " (" + matchingAttractions.get(0).getName() + " at " + matchingAttractions.get(0).getLocation() + ") removed successfully."); // Confirm removal
         }
