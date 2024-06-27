@@ -11,16 +11,19 @@
  */
 
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.List;
 
-public class AttractionDatabase {
+public class AttractionDatabase extends Component {
 
-    private List<Attraction> attractions; // list containing Attraction objects
+    private static List<Attraction> attractions; // list containing Attraction objects
     private int maxThrill = 5;
 
     public AttractionDatabase() {
@@ -58,6 +61,24 @@ public class AttractionDatabase {
     The ID is auto-generated.
     Adds the attraction to the database.
      */
+    public void addAttractionManually(String name, String description, String location, String type, String height, int thrill, LocalDate openingDate){
+        int nextId = 0; // integer for highest ID number
+        // for loop looks for the max ID value in the list and adds 1 to generate a new ID number
+        for (Attraction attraction : attractions) {
+            if (attraction.getId() >= nextId) {
+                nextId = attraction.getId() + 1;
+            }
+        }
+        if (isUniqueAttraction(name, location)) { // If name & location is unique...
+            // Create Attraction object with data and add to list
+            attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
+            JOptionPane.showMessageDialog(this, "Attraction added!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Attraction added successfully.");
+        } else { // If name & location is not unique, notify user
+            JOptionPane.showMessageDialog(this, "This attraction name and location already exists.", "Failed", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("This attraction name and location already exists.");
+        }
+    }
     public void addAttractionManually() {
         Scanner attrInput = new Scanner(System.in); // create Scanner for user input
         boolean exit = false; //  menu exit flag
@@ -72,38 +93,49 @@ public class AttractionDatabase {
         // Add Attraction menu
         do {
             try {
-                System.out.print("Enter name of the attraction: ");
-                String name = attrInput.nextLine(); // attraction name input
+                String name = JOptionPane.showInputDialog("Enter the attraction name: ");
+//                System.out.print("Enter name of the attraction: ");
+//                String name = attrInput.nextLine(); // attraction name input
 
-                System.out.print("Enter a brief description of the attraction: ");
-                String description = attrInput.nextLine(); // description input
+                String description = JOptionPane.showInputDialog("Enter a description: ");
+//                System.out.print("Enter a brief description of the attraction: ");
+//                String description = attrInput.nextLine(); // description input
 
-                System.out.print("Enter location of the attraction: ");
-                String location = attrInput.nextLine(); //  location input
+                String location = JOptionPane.showInputDialog("Enter the location: ");
+//                System.out.print("Enter location of the attraction: ");
+//                String location = attrInput.nextLine(); //  location input
 
-                System.out.print("Enter type of attraction: ");
-                String type = attrInput.nextLine(); // type input
+                String type = JOptionPane.showInputDialog("Enter type: ");
+//                System.out.print("Enter type of attraction: ");
+//                String type = attrInput.nextLine(); // type input
 
-                System.out.print("Enter any height restriction for the attraction or 'None': ");
-                String height = attrInput.nextLine(); // height restrictions input
+                String height = JOptionPane.showInputDialog("Enter height restriction: ");
+//                System.out.print("Enter any height restriction for the attraction or 'None': ");
+//                String height = attrInput.nextLine(); // height restrictions input
 
                 boolean isThrillValid = false;
                 int thrill = 0; // Initialize thrill level
                 do {
                     try {
-                        System.out.print("Enter the thrill level of the attraction (0-5): ");
-                        thrill = attrInput.nextInt(); // Thrill level input
+                        thrill = Integer.parseInt(JOptionPane.showInputDialog("Enter thrill level: "));
+//                        System.out.print("Enter the thrill level of the attraction (0-5): ");
+//                        thrill = attrInput.nextInt(); // Thrill level input
                         // Prompts user to only enter values 0 through 5. Will repeat until successful.
                         while (thrill < 0 || thrill > maxThrill) {
-                            System.out.print("Invalid thrill level. Please try again. \nEnter the thrill level of the attraction (0-5): ");
-                            thrill = attrInput.nextInt(); // retake thrill level input
+                            JOptionPane.showMessageDialog(this, "Invalid thrill level. Please try again.", "Try again", JOptionPane.INFORMATION_MESSAGE);
+//                            System.out.print("Invalid thrill level. Please try again. \nEnter the thrill level of the attraction (0-5): ");
+                            thrill = Integer.parseInt(JOptionPane.showInputDialog("Enter thrill level: "));
+//                            thrill = attrInput.nextInt(); // retake thrill level input
                         }
-                        attrInput.nextLine();
+//                        attrInput.nextLine();
                         isThrillValid = true;
-                    } catch (
-                            InputMismatchException m) { // Catches InputMismatchExceptions. Will repeat until successful.
+                    } catch (InputMismatchException m) { // Catches InputMismatchExceptions. Will repeat until successful.
+                        JOptionPane.showMessageDialog(this, "Invalid thrill level. Please try again.", "Try again", JOptionPane.INFORMATION_MESSAGE);
                         System.out.println("Invalid thrill level. Please try again.");
-                        attrInput.nextLine();
+//                        attrInput.nextLine();
+                    } catch (NumberFormatException n) {
+                        JOptionPane.showMessageDialog(this, "Invalid thrill level. Please try again.", "Try again", JOptionPane.INFORMATION_MESSAGE);
+                        System.out.println("Invalid thrill level. Please try again.");
                     }
                 } while (!isThrillValid);
 
@@ -111,10 +143,12 @@ public class AttractionDatabase {
                 LocalDate openingDate = LocalDate.parse("2024-06-06"); // Initialize Opening Date
                 do {
                     try {
-                        System.out.print("Enter new opening date (yyyy-mm-dd): ");
-                        openingDate = LocalDate.parse(attrInput.nextLine()); // Opening date input
+                        openingDate = LocalDate.parse(JOptionPane.showInputDialog("Enter opening date (yyyy-mm-dd): "));
+//                        System.out.print("Enter new opening date (yyyy-mm-dd): ");
+//                        openingDate = LocalDate.parse(attrInput.nextLine()); // Opening date input
                         isDateValid = true;
                     } catch (DateTimeException d) { // Catches DateTimeExceptions. Will repeat until successful.
+                        JOptionPane.showMessageDialog(this, "Invalid date. Please try again.", "Try again", JOptionPane.INFORMATION_MESSAGE);
                         System.out.println("Invalid date. Please try again");
                     }
                 } while (!isDateValid);
@@ -123,15 +157,19 @@ public class AttractionDatabase {
                 if (isUniqueAttraction(name, location)) { // If name & location is unique...
                     // Create Attraction object with data and add to list
                     attractions.add(new Attraction(nextId, name, description, location, type, height, thrill, openingDate));
+                    JOptionPane.showMessageDialog(this, "Attraction added!", "Success", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Attraction added successfully.");
                 } else { // If name & location is not unique, notify user
+                    JOptionPane.showMessageDialog(this, "This attraction name and location already exists.", "Try again", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("This attraction name and location already exists.");
                 }
                 exit = true; // Ok to exit to main menu
             } catch (InputMismatchException e) { // catches InputMismatchException and will restart menu
+                JOptionPane.showMessageDialog(this, "Invalid entry. Please try again.", "Try again", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Invalid entry. Please try again.");
-                attrInput.nextLine(); // clear input
+//                attrInput.nextLine(); // clear input
             } catch (DateTimeException d) { // catches DateTimeException and will restart menu
+                JOptionPane.showMessageDialog(this, "Invalid entry. Please try again.", "Try again", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Invalid entry. Please try again.");
             }
         } while (!exit); // Exit to main menu
@@ -157,6 +195,32 @@ public class AttractionDatabase {
     }
 
     /*
+    Rate Attraction method for GUI
+    Prompts the user for the rating.
+    Gets the attraction by ID and adds the rating to the attraction's rating list.
+    */
+    public void rateAttraction() {
+        try {
+            int id = Integer.parseInt(JOptionPane.showInputDialog("Enter attraction ID: "));
+            Attraction attraction = getAttractionById(id); // Get attraction by ID
+            if (attraction != null) { // If ID exists...
+                double rating = Double.parseDouble(JOptionPane.showInputDialog("Enter rating: "));
+                if (rating >= 0.0 && rating <= 5.0) {
+                    attraction.addRating(rating); // Add rating to attraction
+                    JOptionPane.showMessageDialog(this, "Attraction rated!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid rating.", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } else { // If ID doesn't exist, let user know
+                JOptionPane.showMessageDialog(this, "Attraction not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (NumberFormatException n){
+            JOptionPane.showMessageDialog(this, "Invalid entry.", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }
+
+    /*
     Update Attraction method
     Accepts the attraction ID.
     Gets attraction by ID.  Asks the user for the attribute to update, then asks for the new value.
@@ -166,9 +230,11 @@ public class AttractionDatabase {
         Scanner userInput = new Scanner(System.in); // create input Scanner
         Attraction attraction = getAttractionById(id); // Get attraction by ID
         if (attraction == null) { // If ID doesn't exist, let user know
+            JOptionPane.showMessageDialog(this, "Attraction not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("Attraction not found.");
             return;
         }
+
         boolean exit = false; // menu exit flag
 
         // Update Attraction menu
@@ -288,10 +354,12 @@ public class AttractionDatabase {
             if (attraction.getId() == attractionId) { // Does the attraction ID match the user's entry?
                 String removedAttraction = "Attraction ID " + attraction.getId() + " (" + attraction.getName() + " at " + attraction.getLocation() + ")";
                 iterator.remove(); // If so, remove this attraction from the list.
+                JOptionPane.showMessageDialog(new JOptionPane(), removedAttraction + " removed successfully.","Removed", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println(removedAttraction + " removed successfully.");
                 return;
             }
         }
+        JOptionPane.showMessageDialog(this, "Attraction with ID " + attractionId + " not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE);
         System.out.println("Attraction with ID " + attractionId + " not found."); // Let user know if no match exists
     }
 
@@ -308,9 +376,11 @@ public class AttractionDatabase {
             }
         }
         if (matchingAttractions.isEmpty()) { // If the matchingAttractions list is empty, no matches were found
+            JOptionPane.showMessageDialog(new JOptionPane(), "Attraction with name '" + name + "' and location '" + location + "' not found.", "Not Found", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("Attraction with name '" + name + "' and location '" + location + "' not found."); // Let user know if no match exists
         } else { // Otherwise, take the matching result - only one result is possible - and remove from attractions list
             attractions.remove(matchingAttractions.get(0));
+            JOptionPane.showMessageDialog(new JOptionPane(), "Attraction ID " + matchingAttractions.get(0).getId() + " (" + matchingAttractions.get(0).getName() + " at " + matchingAttractions.get(0).getLocation() + ") removed successfully.", "Removed", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("Attraction ID " + matchingAttractions.get(0).getId() + " (" + matchingAttractions.get(0).getName() + " at " + matchingAttractions.get(0).getLocation() + ") removed successfully."); // Confirm removal
         }
     }
@@ -333,6 +403,17 @@ public class AttractionDatabase {
         }
     }
 
+    public String viewTopRatedAttractions() {
+        List<Attraction> sortedAttractions = new ArrayList<>(attractions); // create a copy of the attractions list
+        sortedAttractions.sort((a1, a2) -> Double.compare(a2.getAverageRating(), a1.getAverageRating())); // sort the list by average rating
+        List<Attraction> topAttractions = sortedAttractions.subList(0, Math.min(10, sortedAttractions.size())); // copy the top 10 to a topAttraction list
+        StringBuilder sb = new StringBuilder();
+        for (Attraction attraction : topAttractions) {
+            sb.append(attraction.toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
     /*
     List Attractions method
     Displays the full list of attractions.
@@ -352,12 +433,20 @@ public class AttractionDatabase {
         }
     }
 
+    public String viewAttractions() {
+        StringBuilder sb = new StringBuilder();
+        for (Attraction attraction : attractions) {
+            sb.append(attraction.toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
     /*
     Get Attraction by ID method
     Takes in an integer as the ID number and returns the attraction object with the matching ID,
     otherwise, will return 'null' if no match is found.
      */
-    private Attraction getAttractionById(int id) {
+    static Attraction getAttractionById(int id) {
         return attractions.stream().filter(attraction -> attraction.getId() == id).findFirst().orElse(null);
     }
 

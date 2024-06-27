@@ -26,11 +26,11 @@
 *
 */
 
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainApp {
+
     public static void main(String[] args) {
 
         // Create database(list) object for the attractions
@@ -51,12 +51,15 @@ public class MainApp {
         System.out.println("*                                               *");
         System.out.println("*************************************************");
 
+        Frame mainFrame = new Frame(attractionDatabase);
+
         int choice; // integer variable for menu selection from user
         boolean exit = false; // menu exit variable
 
         // do loop to repeat main menu until user chooses to exit
         do {
             try {
+
                 // Display user menu
                 System.out.println("\nMenu:");
                 System.out.println("1. Add an attraction manually");
@@ -67,9 +70,9 @@ public class MainApp {
                 System.out.println("6. List all attractions");
                 System.out.println("7. Exit");
                 System.out.print("\nEnter your choice (1-7): ");
+
                 choice = input.nextInt();
                 input.nextLine();
-
 
                 switch (choice) {
                     case 1: // Add an attraction
