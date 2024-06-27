@@ -35,6 +35,7 @@ public class AttractionDatabase extends Component {
 
     // addAttractionsFromFile reads the text file, parses the information one line at a time, and adds
     // the attraction to the list
+    // This works for the automated load-in only.  See manualAttractionsFromFile for non-automated process.
     public void addAttractionsFromFile(String filePath) {
         try (InputStream inputStream = getClass().getResourceAsStream(filePath);
              BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)))
@@ -66,13 +67,44 @@ public class AttractionDatabase extends Component {
         }
     }
 
+    // manualAttractionsFromFile reads the text file at the provided location, parses the information one line at a time,
+    // and adds the attractions to the list
+    // This works for the manual load-in only.  See addAttractionsFromFile for automated process.
+    public void manualAttractionsFromFile(String filePath) {
+        try (
+        BufferedReader br = new BufferedReader(new FileReader(filePath)))
+        {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                int id = Integer.parseInt(parts[0]); // ID
+                String name = parts[1]; // Name
+                String description = parts[2]; // Description
+                String location = parts[3]; // Location
+                String type = parts[4]; // Type
+                String height = parts[5]; // Height Restrictions
+                int thrill = Integer.parseInt(parts[6]); // Thrill Level
+                LocalDate openingDate = LocalDate.parse(parts[7]); // Opening Date
+                double rating = Double.parseDouble(parts[8]); // initial Rating
+                // Create Attraction object with parsed data and add to list
+                attractions.add(new Attraction(id, name, description, location, type, height, thrill, openingDate, rating));
+                listSize++;
+            }
+        } catch (IOException e) { // Catches IOException. Will print stack trace and application will exit
+            JOptionPane.showMessageDialog(new JOptionPane(), "Failed to load data from file. Check file location.", "Failed to Load", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Failed to load data from file. Check file location.");
+        } catch (NullPointerException n) {
+            JOptionPane.showMessageDialog(new JOptionPane(), "Failed to load data from file. Check file location.", "Failed to Load", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Failed to load data from file. Check file location.");
+        }
+    }
+
     /*
     Add Attraction Manually method
     Asks the user to enter the details for each attribute of the attraction.
     The ID is auto-generated.
     Adds the attraction to the database.
      */
-
     public void addAttractionManually() {
 //        Scanner attrInput = new Scanner(System.in); // create Scanner for user input
         boolean exit = false; //  menu exit flag

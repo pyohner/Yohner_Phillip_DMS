@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class MainMenuFrame extends JFrame {
     private JPanel mainMenuPanel;
@@ -104,7 +105,7 @@ public class MainMenuFrame extends JFrame {
                 listArea.setText(attractionDatabase.viewAttractions());
                 JScrollPane scrollPane = new JScrollPane(listArea);
                JOptionPane.showMessageDialog(null, scrollPane, "List of all attractions", JOptionPane.INFORMATION_MESSAGE);
-                
+
             }
         });
         btnExit.addActionListener(new ActionListener() {
@@ -126,8 +127,13 @@ public class MainMenuFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                     String filePath = JOptionPane.showInputDialog("Enter the path of the text (.txt) file: ");
-                    attractionDatabase.addAttractionsFromFile(filePath);
-                    lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
+                    File file = new File(filePath);
+                    if(!file.exists()){
+                        JOptionPane.showMessageDialog(new JOptionPane(), "File not found: " + filePath, "File Not Found", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        attractionDatabase.manualAttractionsFromFile(filePath);
+                        lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
+                    }
             }
         });
     }
