@@ -42,6 +42,17 @@ public class MainMenuFrame extends JFrame {
         setVisible(true);
         this.attractionDatabase = attractionDatabase;
 
+        // Set Mnemonics ( Alt+<letter> to select )
+        btnExit.setMnemonic('E');
+        btnLoadAttractionsFromFile.setMnemonic('L');
+        btnAddAttraction.setMnemonic('A');
+        btnUpdateAttraction.setMnemonic('U');
+        btnRemoveAttractionById.setMnemonic('I');
+        btnRemoveAttractionByNameLocation.setMnemonic('N');
+        btnRateAttraction.setMnemonic('R');
+        btnViewTop10.setMnemonic('T');
+        btnViewAll.setMnemonic('V');
+
         lbAttractionCount.setText(AttractionDatabase.listSize + " attractions loaded");
 
         btnAddAttraction.addActionListener(new ActionListener() {
@@ -105,6 +116,16 @@ public class MainMenuFrame extends JFrame {
                 listArea.setText(attractionDatabase.viewAttractions());
                 JScrollPane scrollPane = new JScrollPane(listArea);
                JOptionPane.showMessageDialog(null, scrollPane, "List of all attractions", JOptionPane.INFORMATION_MESSAGE);
+
+
+
+
+
+
+
+
+
+
 
             }
         });

@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Various updates.  Code clean-up, enhancements, comments added, and code updates for jar file build.">
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Fix for manual vs automatic load in of file.  Required different methods.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainMenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UpdateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +299,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719516707968</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fix for manual vs automatic load in of file.  Required different methods.">
+      <option name="closed" value="true" />
+      <created>1719519021698</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1719519021698</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +329,7 @@
     <MESSAGE value="Merge remote-tracking branch 'github/main'" />
     <MESSAGE value="GUI implemented" />
     <MESSAGE value="Various updates.  Code clean-up, enhancements, comments added, and code updates for jar file build." />
-    <option name="LAST_COMMIT_MESSAGE" value="Various updates.  Code clean-up, enhancements, comments added, and code updates for jar file build." />
+    <MESSAGE value="Fix for manual vs automatic load in of file.  Required different methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix for manual vs automatic load in of file.  Required different methods." />
   </component>
 </project>

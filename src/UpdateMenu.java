@@ -45,6 +45,16 @@ public class UpdateMenu extends JFrame {
         lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
         setVisible(true);
 
+        // Set Mnemonics ( Alt+<letter> to select )
+        btnUpdateName.setMnemonic('N');
+        btnUpdateDescription.setMnemonic('D');
+        btnUpdateLocation.setMnemonic('L');
+        btnUpdateType.setMnemonic('Y');
+        btnUpdateHeight.setMnemonic('H');
+        btnUpdateThrill.setMnemonic('T');
+        btnUpdateOpeningDate.setMnemonic('O');
+        btnReturnToMain.setMnemonic('E');
+
         btnUpdateName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
