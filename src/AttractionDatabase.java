@@ -492,4 +492,18 @@ public class AttractionDatabase extends Component {
         }
         return true;
     }
+
+
+    public List<Attraction> getAttractions() {
+        return attractions;
+    }
+
+    public List<Attraction> getTopTen() {
+        List<Attraction> sortedAttractions = new ArrayList<>(attractions); // create a copy of the attractions list
+        sortedAttractions.sort((a1, a2) -> Double.compare(a2.getAverageRating(), a1.getAverageRating())); // sort the list by average rating
+        List<Attraction> topAttractions = sortedAttractions.subList(0, Math.min(10, sortedAttractions.size())); // copy the top 10 to a topAttraction list
+        return topAttractions;
+    }
+
+
 }

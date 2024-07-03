@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.List;
 
 public class MainMenuFrame extends JFrame {
     private JPanel mainMenuPanel;
@@ -75,14 +76,11 @@ public class MainMenuFrame extends JFrame {
                         return;
                     } else {
                         UpdateMenu updateMenu = new UpdateMenu(attractionDatabase, id);
-
                     }
 //                    attractionDatabase.updateAttraction(id);
                 } catch (NumberFormatException n) {
                     JOptionPane.showMessageDialog(new JOptionPane(), "Invalid entry.", "Invalid", JOptionPane.INFORMATION_MESSAGE);
                 }
-
-
             }
         });
         btnRemoveAttractionById.addActionListener(new ActionListener() {
@@ -106,27 +104,13 @@ public class MainMenuFrame extends JFrame {
         btnViewTop10.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(attractionDatabase,attractionDatabase.viewTopRatedAttractions(), "Top 10 Attractions", JOptionPane.INFORMATION_MESSAGE);
+                AttractionsTable attractionsTable = new AttractionsTable(attractionDatabase.getTopTen());
             }
         });
         btnViewAll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JTextArea listArea = new JTextArea(51, 100);
-                listArea.setText(attractionDatabase.viewAttractions());
-                JScrollPane scrollPane = new JScrollPane(listArea);
-               JOptionPane.showMessageDialog(null, scrollPane, "List of all attractions", JOptionPane.INFORMATION_MESSAGE);
-
-
-
-
-
-
-
-
-
-
-
+                AttractionsTable attractionsTable = new AttractionsTable(attractionDatabase.getAttractions());
             }
         });
         btnExit.addActionListener(new ActionListener() {

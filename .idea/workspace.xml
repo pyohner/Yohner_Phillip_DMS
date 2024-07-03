@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Fix for manual vs automatic load in of file.  Required different methods.">
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Set button mnemonics">
+      <change afterPath="$PROJECT_DIR$/src/AttractionTableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AttractionsTable.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AttractionsTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainMenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UpdateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,11 +310,55 @@
       <option name="project" value="LOCAL" />
       <updated>1719519021698</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Set button mnemonics">
+      <option name="closed" value="true" />
+      <created>1719582455861</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1719582455861</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="510066fe-ed9c-495b-a24c-24c83c4d539f" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="510066fe-ed9c-495b-a24c-24c83c4d539f">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/yohnep25/IdeaProjects/DisneyAttrDMS/src" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
@@ -330,6 +377,7 @@
     <MESSAGE value="GUI implemented" />
     <MESSAGE value="Various updates.  Code clean-up, enhancements, comments added, and code updates for jar file build." />
     <MESSAGE value="Fix for manual vs automatic load in of file.  Required different methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for manual vs automatic load in of file.  Required different methods." />
+    <MESSAGE value="Set button mnemonics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set button mnemonics" />
   </component>
 </project>
