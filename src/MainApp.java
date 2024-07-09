@@ -30,12 +30,16 @@
 * User menus designed using Swing UI Designer.
 * Console activities commented-out (disabled).
 *
+* Update: July 9, 2024
+* Internal array to manage data and text file upload removed.
+* Code cleaned up.
+* Implemented database connection.  Methods updated/created to support this
+* implementation.
+*
 */
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class MainApp {
 
@@ -57,20 +61,24 @@ public class MainApp {
         JLabel loadingText = new JLabel("Loading something magical, please wait...", JLabel.CENTER);
         content.add(label, BorderLayout.CENTER);
         content.add(loadingText, BorderLayout.SOUTH);
-        // Display the splash screen
-        splashScreen.setVisible(true);
 
         // Create database(list) object for the attractions
         AttractionDatabase attractionDatabase = new AttractionDatabase();
-        // Create Scanner for user inputs
-        Scanner input = new Scanner(System.in);
+        // Display the splash screen
+        splashScreen.setVisible(true);// Create Scanner for user inputs
+
+        /*
+        // ******  Array and Text File activities are below...  ******
+
+//        Scanner input = new Scanner(System.in);
         // The filepath to the text file with comma separated values
-        String filePath = "/resources/attractions.txt";
-        System.out.println("Loading data...");
+//        String filePath = "/resources/attractions.txt";
+//        System.out.println("Loading data...");
         // addAttractionFromFile adds the list from the text file to the database(list)
-        attractionDatabase.addAttractionsFromFile(filePath);
+//        attractionDatabase.addAttractionsFromFile(filePath);
         // listAttractions displays all attractions
-        attractionDatabase.listAttractions();
+//        attractionDatabase.listAttractions();
+         */
 
         System.out.println("\n*************************************************");
         System.out.println("*                                               *");
@@ -90,6 +98,7 @@ public class MainApp {
 
         // Create main menu
         MainMenuFrame mainFrame = new MainMenuFrame(attractionDatabase);
+        AttractionsTable attractionsTable = new AttractionsTable(attractionDatabase.getAllAttractions());
 
         // ******  See MainMenuFrame and UpdateMenu classes for GUI actions.  ******
 

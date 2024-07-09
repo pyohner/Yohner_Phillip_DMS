@@ -8,7 +8,6 @@
  *
  */
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,9 +109,9 @@ public class Attraction {
     public List<Double> getRatings() { return ratings; }
 
     /*
-        Get Average Rating method
-        Calculates the average rating from an attraction's ratings list and returns the average rating (double).
-         */
+    Get Average Rating method
+    Calculates the average rating from an attraction's ratings list and returns the average rating (double).
+     */
     public double getAverageRating() {
         OptionalDouble average = ratings.stream().mapToDouble(Double::doubleValue).average();
         return average.isPresent() ? average.getAsDouble() : 0.0; // Returns the average of the object's ratings

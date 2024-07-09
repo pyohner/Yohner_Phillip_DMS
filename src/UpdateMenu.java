@@ -7,6 +7,9 @@
  * This class defines the update menu GUI interface.
  * The user clicks a button corresponding with the attribute they wish to update.
  *
+ * Update: July 9,2024
+ * Button actions updated to use database methods.
+ *
  */
 
 import javax.swing.*;
@@ -32,17 +35,17 @@ public class UpdateMenu extends JFrame {
     private JButton btnReturnToMain;
     private AttractionDatabase attractions;
 
-    public UpdateMenu(AttractionDatabase attractions, int id) {
+    public UpdateMenu(AttractionDatabase attractionDatabase, int id) {
         setContentPane(updateMenuPanel);
         setTitle("Disney Attractions DMS");
         setSize(450, 450);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         lbTitle.setFont(new Font("Roboto", Font.BOLD, 24));
-        this.attractions = attractions;
+        this.attractions = attractionDatabase;
         this.id = id;
-        Attraction attraction = AttractionDatabase.getAttractionById(id);
-        lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
+        final Attraction[] attraction = {AttractionDatabase.getAttractionById(id)};
+        lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction[0].toString() +"</body></html>");
         setVisible(true);
 
         // Set Mnemonics ( Alt+<letter> to select )
@@ -59,42 +62,60 @@ public class UpdateMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = JOptionPane.showInputDialog("Enter the attraction name: ");
-                attraction.setName(name);
-                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
+                if (attractionDatabase.isUniqueAttraction(name, attraction[0].getLocation())) {
+                    attractionDatabase.updateName(id, name);
+                    attraction[0] = AttractionDatabase.getAttractionById(id);
+                    lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction[0].toString() +"</body></html>");
+                } else {
+                    JOptionPane.showMessageDialog(new JOptionPane(), "This attraction already exists.", "Failed", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
+
         btnUpdateDescription.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String description = JOptionPane.showInputDialog("Enter the description: ");
-                attraction.setDescription(description);
-                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
+                attractionDatabase.updateDescription(id, description);
+                attraction[0] = AttractionDatabase.getAttractionById(id);
+                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction[0].toString() +"</body></html>");
             }
         });
+
         btnUpdateLocation.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String location = JOptionPane.showInputDialog("Enter the location: ");
-                attraction.setLocation(location);
-                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
+                if (attractionDatabase.isUniqueAttraction(attraction[0].getName(), location)) {
+                    attractionDatabase.updateLocation(id, location);
+                    attraction[0] = AttractionDatabase.getAttractionById(id);
+                    lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction[0].toString() +"</body></html>");
+                } else {
+                    JOptionPane.showMessageDialog(new JOptionPane(), "This attraction already exists.", "Failed", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
+
         btnUpdateType.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String type = JOptionPane.showInputDialog("Enter the type: ");
-                attraction.setType(type);
-                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
+                attractionDatabase.updateType(id, type);
+                attraction[0] = AttractionDatabase.getAttractionById(id);
+                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction[0].toString() +"</body></html>");
             }
         });
+
         btnUpdateHeight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String height = JOptionPane.showInputDialog("Enter the height restriction: ");
-                attraction.setHeight(height);
-                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction.toString() +"</body></html>");
+                attractionDatabase.updateHeight(id, height);
+                attraction[0] = AttractionDatabase.getAttractionById(id);
+                lbSelectedAttraction.setText("<html><body style='width: 300px;'>"+ attraction[0].toString() +"</body></html>");
             }
         });
+
         btnUpdateThrill.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,8 +124,9 @@ public class UpdateMenu extends JFrame {
                     if (thrill < 0 || thrill > 5) {
                         JOptionPane.showMessageDialog(new JOptionPane(), "Invalid thrill level.");
                     } else {
-                        attraction.setThrill(thrill);
-                        lbSelectedAttraction.setText("<html><body style='width: 300px;'>" + attraction.toString() + "</body></html>");
+                        attractionDatabase.updateThrill(id, thrill);
+                        attraction[0] = AttractionDatabase.getAttractionById(id);
+                        lbSelectedAttraction.setText("<html><body style='width: 300px;'>" + attraction[0].toString() + "</body></html>");
                     }
                 } catch (NumberFormatException n){
                     JOptionPane.showMessageDialog(new JOptionPane(), "Invalid entry.", "Invalid", JOptionPane.INFORMATION_MESSAGE);
@@ -113,13 +135,15 @@ public class UpdateMenu extends JFrame {
                 }
             }
         });
+
         btnUpdateOpeningDate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     LocalDate openingDate = LocalDate.parse(JOptionPane.showInputDialog("Enter the opening date (yyyy-mm-dd): "));
-                    attraction.setOpeningDate(openingDate);
-                    lbSelectedAttraction.setText("<html><body style='width: 300px;'>" + attraction.toString() + "</body></html>");
+                    attractionDatabase.updateOpeningDate(id, openingDate);
+                    attraction[0] = AttractionDatabase.getAttractionById(id);
+                    lbSelectedAttraction.setText("<html><body style='width: 300px;'>" + attraction[0].toString() + "</body></html>");
                 } catch (DateTimeException d){
                     JOptionPane.showMessageDialog(new JOptionPane(), "Invalid entry.", "Invalid", JOptionPane.INFORMATION_MESSAGE);
                 } catch (InputMismatchException i) {
@@ -127,6 +151,7 @@ public class UpdateMenu extends JFrame {
                 }
             }
         });
+
         btnReturnToMain.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
