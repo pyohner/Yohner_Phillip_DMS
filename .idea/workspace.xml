@@ -9,15 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Added table view to Top 10 and all attractions views.">
-      <change afterPath="$PROJECT_DIR$/src/DatabaseConnection.java" afterDir="false" />
+    <list default="true" id="da36cebb-b1fe-4037-bd33-24fe4174a3c3" name="Changes" comment="Implemented database connectivity. Array-based management of the data and text file uploading has been disabled.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AttractionDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AttractionDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainMenuView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainMenuView.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UpdateMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,37 +55,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApp.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.AttractionDatabaseTest.executor": "Run",
-    "JUnit.AttractionTest.executor": "Run",
-    "JUnit.AttractionTest.getAverageRatingTest.executor": "Run",
-    "JUnit.AttractionTestOLD.executor": "Run",
-    "JUnit.AttractionTests.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/yohnep25/IdeaProjects/DisneyAttrDMS/src/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AttractionDatabaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AttractionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AttractionTest.getAverageRatingTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AttractionTestOLD.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AttractionTests.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yohnep25/IdeaProjects/DisneyAttrDMS/src/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\yohnep25\IdeaProjects\DisneyAttrDMS\src\resources" />
@@ -175,6 +169,7 @@
       <updated>1716935311191</updated>
       <workItem from="1716935312468" duration="2313000" />
       <workItem from="1717015440867" duration="40615000" />
+      <workItem from="1720643614431" duration="706000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -328,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719967074706</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implemented database connectivity. Array-based management of the data and text file uploading has been disabled.">
+      <option name="closed" value="true" />
+      <created>1720558288701</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1720558288701</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +397,8 @@
     <MESSAGE value="Fix for manual vs automatic load in of file.  Required different methods." />
     <MESSAGE value="Set button mnemonics" />
     <MESSAGE value="Added table view to Top 10 and all attractions views." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added table view to Top 10 and all attractions views." />
+    <MESSAGE value="Implemented database connectivity. Array-based management of the data and text file uploading has been disabled." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented database connectivity. Array-based management of the data and text file uploading has been disabled." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
