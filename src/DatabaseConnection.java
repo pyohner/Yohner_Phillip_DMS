@@ -1,28 +1,25 @@
-/*
- * Phillip Yohner
- * CEN 3024C - 31950
- * July 9, 2024
- *
- * Class: DatabaseConnection
- * This class establishes connection to the database.
- *
- */
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * DatabaseConnection ---
+ * This class establishes connection to the database.
+ *
+ * @author Phillip Yohner
+ * @course CEN 3024C - 31950
+ * @created July 9, 2024
+ */
+
 public class DatabaseConnection {
 
     private static String dbFilePath;
     private static String classPath = "jdbc:sqlite:";
-//    private static final String URL = "jdbc:sqlite:C:/Users/yohnep25/java_databases/sqlite/db/disney_attractions.db";
 
-    /*
-    Connection method
-    Asks the user for the file path to the database file.
-    A connection is returned.
+    /**
+     * Asks the user for the file path to the database file.
+     * @return Returns a connection to the database
      */
     public static Connection connect() {
         if (dbFilePath == null) {

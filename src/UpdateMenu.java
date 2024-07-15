@@ -1,17 +1,3 @@
-/*
- * Phillip Yohner
- * CEN 3024C - 31950
- * June 27, 2024
- *
- * Class: UpdateMenu
- * This class defines the update menu GUI interface.
- * The user clicks a button corresponding with the attribute they wish to update.
- *
- * Update: July 9,2024
- * Button actions updated to use database methods.
- *
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,6 +6,15 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 
+/**
+ * UpdateMenu ---
+ * This class defines the update menu GUI interface.
+ * The user clicks a button corresponding with the attribute they wish to update.
+ *
+ * @author Phillip Yohner
+ * @course CEN 3024C - 31950
+ * @created June 27, 2024
+ */
 public class UpdateMenu extends JFrame {
     private int id;
     private JPanel updateMenuPanel;
@@ -35,6 +30,11 @@ public class UpdateMenu extends JFrame {
     private JButton btnReturnToMain;
     private AttractionDatabase attractions;
 
+    /**
+     * Sets up the "Update Attraction" user menu
+     * @param attractionDatabase The attractions database
+     * @param id The attraction ID
+     */
     public UpdateMenu(AttractionDatabase attractionDatabase, int id) {
         setContentPane(updateMenuPanel);
         setTitle("Disney Attractions DMS");
