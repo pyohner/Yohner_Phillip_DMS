@@ -1,21 +1,18 @@
-/*
- * Phillip Yohner
- * CEN 3024C - 31950
- * June 27, 2024
- *
- * Class: MainMenuFrame
- * This class defines the main menu GUI.
- * The user clicks a button corresponding with the activity.
- *
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-//import java.io.File;
 
+/**
+ * MainMenuFrame ---
+ * This class defines the main menu GUI interface.
+ * The user clicks a button corresponding with the activity.
+ *
+ * @author Phillip Yohner
+ * @course CEN 3024C - 31950
+ * @created June 27, 2024
+ */
 public class MainMenuFrame extends JFrame {
     private JPanel mainMenuPanel;
     private JButton btnAddAttraction;
@@ -27,10 +24,13 @@ public class MainMenuFrame extends JFrame {
     private JButton btnExit;
     private JLabel lbTitle;
     private JButton btnRemoveAttractionByNameLocation;
-//    private JButton btnLoadAttractionsFromFile;
     private JLabel lbAttractionCount;
 
 
+    /**
+     * Sets up the "Main Menu" user interface
+     * @param attractionDatabase The attractions database
+     */
     public MainMenuFrame(AttractionDatabase attractionDatabase){
         setContentPane(mainMenuPanel);
         setTitle("Disney Attractions DMS");
@@ -43,7 +43,6 @@ public class MainMenuFrame extends JFrame {
 
         // Set Mnemonics ( Alt+<letter> to select )
         btnExit.setMnemonic('E');
-//        btnLoadAttractionsFromFile.setMnemonic('L');
         btnAddAttraction.setMnemonic('A');
         btnUpdateAttraction.setMnemonic('U');
         btnRemoveAttractionById.setMnemonic('I');
@@ -136,19 +135,5 @@ public class MainMenuFrame extends JFrame {
                 lbAttractionCount.setText(attractionDatabase.getDatabaseSize() + " attractions loaded");
             }
         });
-
-//        btnLoadAttractionsFromFile.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                    String filePath = JOptionPane.showInputDialog("Enter the path of the text (.txt) file: ");
-//                    File file = new File(filePath);
-//                    if(!file.exists()){
-//                        JOptionPane.showMessageDialog(new JOptionPane(), "File not found: " + filePath, "File Not Found", JOptionPane.INFORMATION_MESSAGE);
-//                    } else {
-//                        attractionDatabase.manualAttractionsFromFile(filePath);
-//                        lbAttractionCount.setText(attractionDatabase.getDatabaseSize() + " attractions loaded");
-//                    }
-//            }
-//        });
     }
 }

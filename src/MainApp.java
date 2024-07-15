@@ -1,48 +1,37 @@
-/*
-* Phillip Yohner
-* CEN 3024C - 31950
-* June 6, 2024
-*
-* Class: MainApp
-* This is the main class for the Disney Attractions DMS application.
-* In this version, the application will load sample attraction data
-* from a text file, list the attractions, and then present a menu for
-* the user.  The user can choose to add an attraction, remove an
-* attraction, update an attraction, rate an attraction, list the
-* Top 10 rated attractions, or list all attractions. They can also
-* choose to exit the program.
-* - Adding an attraction will ask the user for a name, description,
-*    location, type, height restriction, thrill level, and opening date.
-* - Removing an attraction will ask the user for the ID number of the
-*    attraction they want to remove or rate.
-* - Updating an attraction will ask the user for the ID number of the
-*    attraction they want to update, then which attribute they want to
-*    update before asking for the updated information.
-* - Rating an attraction will ask the user for the ID number of the
-*    attraction they want to remove or rate.
-* - Listing the Top 10 attractions will calculate the average rating for
-*    each attraction and then list the top 10 of a rating sorted list.
-* - Listing all attractions will display all the attractions in the database.
-*
-* Update: June 27, 2024
-* Implemented graphical user interface (GUI). User activities remain the
-* same, except for added feature to allow user to load in their own file.
-* User menus designed using Swing UI Designer.
-* Console activities commented-out (disabled).
-*
-* Update: July 9, 2024
-* Internal array to manage data and text file upload removed.
-* Code cleaned up.
-* Implemented database connection.  Methods updated/created to support this
-* implementation.
-*
-*/
-
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Disney Attractions DMS (MainApp) ---
+ * The user can choose to add an attraction, remove an attraction,
+ * update an attraction, rate an attraction, list the
+ * Top 10 rated attractions, or list all attractions. They can also
+ * choose to exit the program.
+ * - Adding an attraction will ask the user for a name, description,
+ *    location, type, height restriction, thrill level, and opening date.
+ * - Removing an attraction will ask the user for the ID number of the
+ *    attraction they want to remove or rate.
+ * - Updating an attraction will ask the user for the ID number of the
+ *    attraction they want to update, then which attribute they want to
+ *    update before asking for the updated information.
+ * - Rating an attraction will ask the user for the ID number of the
+ *    attraction they want to remove or rate.
+ * - Listing the Top 10 attractions will calculate the average rating for
+ *    each attraction and then list the top 10 of a rating sorted list.
+ * - Listing all attractions will display all the attractions in the database.
+ *
+ * git https://github.com/pyohner/Yohner_Phillip_DMS
+ * @version 1.4.2
+ * @author Phillip Yohner
+ * @course CEN 3024C - 31950
+ * @created June 6, 2024
+ */
 public class MainApp {
 
+    /**
+     * Main class to run application.
+     * @param args A string array containing the command line arguments
+     */
     public static void main(String[] args) {
 
         // Splash screen for a little magic
@@ -67,24 +56,15 @@ public class MainApp {
         // Display the splash screen
         splashScreen.setVisible(true);// Create Scanner for user inputs
 
-        /*
-        // ******  Array and Text File activities are below...  ******
-
-//        Scanner input = new Scanner(System.in);
-        // The filepath to the text file with comma separated values
-//        String filePath = "/resources/attractions.txt";
-//        System.out.println("Loading data...");
-        // addAttractionFromFile adds the list from the text file to the database(list)
-//        attractionDatabase.addAttractionsFromFile(filePath);
-        // listAttractions displays all attractions
-//        attractionDatabase.listAttractions();
-         */
-
-        System.out.println("\n*************************************************");
-        System.out.println("*                                               *");
-        System.out.println("*           Disney Attractions DMS              *");
-        System.out.println("*                                               *");
-        System.out.println("*************************************************");
+        // Console title "Disney Attractions DMS"
+        System.out.println("\n*****************************************************************************************************************");
+        System.out.println("*    ____  _                          ___   __  __                  __  _                     ____  __  ________*");
+        System.out.println("*   / __ \\(_)________  ___  __  __   /   | / /_/ /__________ ______/ /_(_)___  ____  _____   / __ \\/  |/  / ___/*");
+        System.out.println("*  / / / / / ___/ __ \\/ _ \\/ / / /  / /| |/ __/ __/ ___/ __ `/ ___/ __/ / __ \\/ __ \\/ ___/  / / / / /|_/ /\\__ \\ *");
+        System.out.println("* / /_/ / (__  ) / / /  __/ /_/ /  / ___ / /_/ /_/ /  / /_/ / /__/ /_/ / /_/ / / / (__  )  / /_/ / /  / /___/ / *");
+        System.out.println("*/_____/_/____/_/ /_/\\___/\\__, /  /_/  |_\\__/\\__/_/   \\__,_/\\___/\\__/_/\\____/_/ /_/____/  /_____/_/  /_//____/  *");
+        System.out.println("*                        /____/                                                                                 *");
+        System.out.println("*****************************************************************************************************************");
 
         try {
             Thread.sleep(3000); // Provide a little loading time (3 seconds)
@@ -99,107 +79,5 @@ public class MainApp {
         // Create main menu
         MainMenuFrame mainFrame = new MainMenuFrame(attractionDatabase);
         AttractionsTable attractionsTable = new AttractionsTable(attractionDatabase.getAllAttractions());
-
-        // ******  See MainMenuFrame and UpdateMenu classes for GUI actions.  ******
-
-        /*
-        // ******  Console-based activities are below...  ******
-
-        int choice; // integer variable for menu selection from user
-        boolean exit = false; // menu exit variable
-
-        // do loop to repeat main menu until user chooses to exit
-        do {
-            try {
-
-                // Display user menu
-                System.out.println("\nMenu:");
-                System.out.println("1. Add an attraction manually");
-                System.out.println("2. Update an attraction");
-                System.out.println("3. Remove an attraction");
-                System.out.println("4. Rate an attraction");
-                System.out.println("5. List top 10 attractions");
-                System.out.println("6. List all attractions");
-                System.out.println("7. Exit");
-                System.out.print("\nEnter your choice (1-7): ");
-
-                choice = input.nextInt();
-                input.nextLine();
-
-                switch (choice) {
-                    case 1: // Add an attraction
-                        attractionDatabase.addAttractionManually();
-                        break;
-                    case 2: // Update an attraction
-                        // Prompt the user to enter the ID of the attraction to update
-                        System.out.print("Enter the ID of the attraction to update: ");
-                        int attractionToUpdate = input.nextInt(); // ID input
-                        // Call updateAttraction with entered ID number (attractionToUpdate)
-                        attractionDatabase.updateAttraction(attractionToUpdate);
-                        input.nextLine(); // clear input
-                        break;
-                    case 3: // Remove an attraction
-                        // Ask user if they want to enter an ID or enter the name and location?
-                        System.out.println("Remove by Attraction ID or Attraction Name and Location?: ");
-                        System.out.println("1. Enter Attraction ID");
-                        System.out.println("2. Enter Attraction Name and Location");
-                        int removeOption = input.nextInt();
-                        input.nextLine(); //clear input
-                        switch (removeOption) {
-                            case 1:
-                                // Prompt the user to enter the ID of the attraction to remove
-                                System.out.print("Enter the ID of the attraction to remove: ");
-                                int attrIdToRemove = input.nextInt(); // ID input
-                                //input.nextLine(); //clear input
-                                // Call removeAttraction with entered ID number (removeAttraction (int))
-                                attractionDatabase.removeAttraction(attrIdToRemove);
-                                break;
-                            case 2:
-                                // Prompt the user to enter the name of the attraction to remove
-                                System.out.println("Enter the name of the attraction: ");
-                                String attrNameToRemove = input.nextLine();
-                                // Prompt the user to enter the location of the attraction to remove
-                                System.out.println("Enter the location of the attraction: ");
-                                String attrLocationToRemove = input.nextLine();
-                                // Call removeAttraction with entered name and location (removeAttraction (String, String))
-                                attractionDatabase.removeAttraction(attrNameToRemove, attrLocationToRemove);
-                                break;
-                        }
-                        break;
-                    case 4: // Rate an attraction
-                        // Ask user how
-                        // Prompt the user to enter the ID of the attraction to rate
-                        System.out.print("Enter the ID of the attraction to rate: ");
-                        int attractionToRate = input.nextInt(); // ID input
-                        // Prompt the user to enter a rating for the attraction
-                        System.out.print("Enter rating (0.0 to 5.0): ");
-                        double rating = input.nextDouble(); // Rating input
-                        // Call rateAttraction with entered ID (attractionToRate) and rating
-                        attractionDatabase.rateAttraction(attractionToRate, rating);
-                        input.nextLine(); // clear input
-                        break;
-                    case 5: // List the top 10 rated attractions
-                        // Call getTopRatedAttractions to list the 10 highest average rating
-                        attractionDatabase.getTopRatedAttractions();
-                        break;
-                    case 6: // List all attractions in the database
-                        // Call listAttractions to list all attractions
-                        attractionDatabase.listAttractions();
-                        break;
-                    case 7: // Exit the program
-                        exit = true;
-                        System.out.println("Exiting... See ya real soon!"); // Exit message
-                        break;
-                    default: // Invalid choice message
-                        System.out.println("Invalid choice. Please enter a valid option."); // Invalid choice message
-                }
-            } catch (InputMismatchException e) { // Catches InputMismatchExceptions
-                System.out.println("Invalid entry. Please try again."); // Invalid choice message
-                input.nextLine(); // clear input
-            }
-        } while (!exit); // Exit procedure
-        input.close(); // close input Scanner
-
-         */
     }
 }
